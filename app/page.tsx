@@ -12,7 +12,85 @@ import { Button } from "@/components/ui/Button";
 import Hero from "@/components/sections/Hero";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import LearningJourney from "@/components/sections/LearningJourney";
-
+import WhatMakesUsDifferent from "@/components/sections/WhatMakesUsDifferent";
+import CampusFacilities from "@/components/sections/CampusFacilities";
+import AdmissionSteps from "@/components/sections/AdmissionSteps";
+import AdmissionsForm from "@/components/sections/AdmissionsForm";
+import Footer from "@/components/sections/Footer";
+import MapSection from "@/components/sections/MapSection";
+import EnquiryModal from "@/components/sections/EnquiryModal";
+const MAP_DATA = [
+  {
+    key: "kalladka",
+    title: "Kalladka",
+    icon: "/icons/cityIcon.svg",
+    points: [100],
+    viewport: {
+      center: { lat: 12.85050601221967, lng: 75.06984111877208 },
+      zoom: 13,
+    },
+  },
+  {
+    key: "sajipa",
+    title: "Sajipa",
+    icon: "/icons/itIcon.svg",
+    points: [101],
+    viewport: {
+      center: { lat: 12.856852979948613, lng: 75.00882675405474 },
+      zoom: 13,
+    },
+  },
+  {
+    key: "bantwal",
+    title: "Bantwal",
+    icon: "/icons/educationIcon.svg",
+    points: [102],
+    viewport: {
+      center: { lat: 12.901423573357576, lng: 75.04149806660762 },
+      zoom: 13,
+    },
+  },
+  {
+    key: "bc-road",
+    title: "BC Road",
+    icon: "/icons/everydayIcon.svg",
+    points: [103],
+    viewport: {
+      center: { lat: 12.88213544588077, lng: 75.03047979544309 },
+      zoom: 13,
+    },
+  },
+  {
+    key: "ullal",
+    title: "Ullal",
+    icon: "/icons/itIcon.svg",
+    points: [104],
+    viewport: {
+      center: { lat: 12.795657685168187, lng: 74.8547907512623 },
+      zoom: 13,
+    },
+  },
+  {
+    key: "mangalore-city",
+    title: "Mangalore City",
+    icon: "/icons/educationIcon.svg",
+    points: [105],
+    viewport: {
+      center: { lat: 12.884962867688321, lng: 74.83857338009977 },
+      zoom: 13,
+    },
+  },
+  {
+    key: "location-7",
+    title: "Other Area",
+    icon: "/icons/everydayIcon.svg",
+    points: [106],
+    viewport: {
+      center: { lat: 12.907650090007605, lng: 74.84971614242019 },
+      zoom: 13,
+    },
+  },
+];
 export default function LandingPage() {
   return (
     <div>
@@ -20,6 +98,37 @@ export default function LandingPage() {
 
       <LearningJourney />
       <WhyChooseUs />
+      {/* Combined Wrapper for Differentiation & Campus Sections to share the background SVG line */}
+      <div className="relative w-full overflow-hidden bg-white">
+        {/* Background Diagonal Red SVG Line */}
+        <div className="absolute hidden md:block top-32 left-0 w-full lg:w-[1712px] xl:w-[2200px] z-0 pointer-events-none ">
+          <svg viewBox="0 0 1712 1130" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+            <path d="M3.12012 2.50293C487.259 606.036 1511.35 1101.83 1710.68 1125.89" stroke="url(#paint0_linear_86_6)" strokeWidth="8" />
+            <defs>
+              <linearGradient id="paint0_linear_86_6" x1="1517.11" y1="-3285.68" x2="628.134" y2="896.639" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#E31C22" />
+                <stop offset="1" stopColor="#FB7824" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        
+
+        <WhatMakesUsDifferent />
+<div className="container mx-auto px-4 md:mt-32 mt-3">
+  <div className="h-[3px] w-full bg-[#DBDBDB]"></div>
+</div>
+        <CampusFacilities />
+        </div>
+        <AdmissionSteps />
+        {/* <MapSection
+        data={MAP_DATA}
+        mainMarkerPosition={{ lat: 12.866519719791675, lng: 74.9199120224277 }}
+        customMarkerImage="/svgs/location.svg"
+        /> */}
+        <AdmissionsForm />
+        <Footer />
+      
     </div>
   );
 }

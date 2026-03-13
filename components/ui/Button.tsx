@@ -7,7 +7,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 const baseClasses =
-  "inline-flex items-center justify-center rounded-lg cursor-pointer px-6 py-2 text-lg font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E31C22]";
+  "inline-flex items-center justify-center rounded-lg cursor-pointer px-6 py-2 text-base md:text-lg font-bold transition-colors";
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
