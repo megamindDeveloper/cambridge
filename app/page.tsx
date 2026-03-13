@@ -101,7 +101,7 @@ export default function LandingPage() {
       {/* Combined Wrapper for Differentiation & Campus Sections to share the background SVG line */}
       <div className="relative w-full overflow-hidden bg-white">
         {/* Background Diagonal Red SVG Line */}
-        <div className="absolute hidden md:block top-32 left-0 w-full lg:w-[1712px] xl:w-[2200px] z-0 pointer-events-none ">
+        <div className="absolute hidden md:block top-54 left-0 w-full lg:w-[1712px] xl:w-[2200px] z-0 pointer-events-none ">
           <svg viewBox="0 0 1712 1130" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
             <path d="M3.12012 2.50293C487.259 606.036 1511.35 1101.83 1710.68 1125.89" stroke="url(#paint0_linear_86_6)" strokeWidth="8" />
             <defs>
@@ -112,23 +112,18 @@ export default function LandingPage() {
             </defs>
           </svg>
         </div>
-        
 
         <WhatMakesUsDifferent />
-<div className="container mx-auto px-4 md:mt-32 mt-3">
-  <div className="h-[3px] w-full bg-[#DBDBDB]"></div>
-</div>
-        <CampusFacilities />
+        <div className="container mx-auto px-4 md:mt-24 mt-3">
+          <div className="h-[3px] w-full bg-[#DBDBDB]"></div>
         </div>
-        <AdmissionSteps />
-        {/* <MapSection
-        data={MAP_DATA}
-        mainMarkerPosition={{ lat: 12.866519719791675, lng: 74.9199120224277 }}
-        customMarkerImage="/svgs/location.svg"
-        /> */}
-        <AdmissionsForm />
-        <Footer />
-      
+        <CampusFacilities />
+      </div>
+
+      <MapSection data={MAP_DATA} mainMarkerPosition={{ lat: 12.866519719791675, lng: 74.9199120224277 }} customMarkerImage="/svgs/location.svg" />
+      <AdmissionSteps />
+      <AdmissionsForm />
+      <Footer />
     </div>
   );
 }

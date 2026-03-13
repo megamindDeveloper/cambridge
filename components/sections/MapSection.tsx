@@ -3,6 +3,23 @@
 import { useState } from 'react';
 import StyledMap from '../ui/StyledMap';
 
+export interface MapSectionData {
+    key: string;
+    title: string;
+    points: number[];
+    viewport: {
+        center: { lat: number; lng: number };
+        zoom: number;
+    };
+}
+
+export interface MapSectionProps {
+    data: MapSectionData[];
+    mainMarkerPosition?: { lat: number; lng: number };
+    customMarkerImage?: string;
+    title?: string;
+}
+
 export default function MapSection({ 
     data, 
     mainMarkerPosition, 
@@ -26,7 +43,6 @@ export default function MapSection({
                     // Map now centers and zooms based on activeItem
                     center={activeItem.viewport.center}
                     zoom={activeItem.viewport.zoom}
-                    activePoints={allPoints} 
                     allowedPoints={allPoints}
                     mainMarkerPosition={mainMarkerPosition}
                     customMarkerImage={customMarkerImage}

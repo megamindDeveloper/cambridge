@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { Button } from "../ui/Button";
 
+const WEBHOOK_URL = "/api/enquiry";
+
 const COUNTRY_CODES = [
   '+1', '+7', '+20', '+27', '+30', '+31', '+32', '+33', '+34', '+36',
   '+39', '+40', '+41', '+43', '+44', '+45', '+46', '+47', '+48', '+49',
@@ -17,6 +19,40 @@ const COUNTRY_CODES = [
 
 export default function AdmissionsForm() {
   const [countryCode, setCountryCode] = useState('+91');
+  const [parentName, setParentName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [childAge, setChildAge] = useState('');
+  const [grade, setGrade] = useState('');
+  const [location, setLocation] = useState('');
+  const [visitDate, setVisitDate] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitting(true);
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          formType: 'admissions_form',
+          parentName,
+          phone: `${countryCode}${phone}`,
+          childAge,
+          grade,
+          location,
+          visitDate,
+          premise:"campbridge"
+        }),
+      });
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Webhook submission failed:', err);
+    } finally {
+      setSubmitting(false);
+    }
+  };
   
   // Restored your original coordinates and parameters
   const lat = 12.86649880088944;
@@ -40,11 +76,14 @@ export default function AdmissionsForm() {
               for Nursery to Grade 10
             </h2>
 
-            <form className="flex flex-col gap-5">
+          
+            <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
               <div>
                 <input
                   type="text"
                   placeholder="Parent Name"
+                  value={parentName}
+                  onChange={(e) => setParentName(e.target.value)}
                   className="w-full border-b border-primary/50 py-2 bg-transparent text-primary placeholder-primary/90 text-base md:text-xl focus:outline-none focus:border-gray-800 transition-colors"
                   required
                 />
@@ -65,6 +104,8 @@ export default function AdmissionsForm() {
                 <input
                   type="tel"
                   placeholder="Parent Phone Number"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                   className="w-full bg-transparent text-primary placeholder-primary/90 text-base md:text-xl focus:outline-none"
                   required
                 />
@@ -75,6 +116,8 @@ export default function AdmissionsForm() {
                   <input
                     type="text"
                     placeholder="Child's Age"
+                    value={childAge}
+                    onChange={(e) => setChildAge(e.target.value)}
                     className="w-full border-b border-primary/50 py-2 bg-transparent text-primary placeholder-primary/90 text-base md:text-xl focus:outline-none focus:border-gray-800 transition-colors"
                     required
                   />
@@ -83,6 +126,8 @@ export default function AdmissionsForm() {
                   <input
                     type="text"
                     placeholder="Grade"
+                    value={grade}
+                    onChange={(e) => setGrade(e.target.value)}
                     className="w-full border-b border-primary/50 py-2 bg-transparent text-primary placeholder-primary/90 text-base md:text-xl focus:outline-none focus:border-gray-800 transition-colors"
                     required
                   />
@@ -93,6 +138,8 @@ export default function AdmissionsForm() {
                 <input
                   type="text"
                   placeholder="Located in"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
                   className="w-full border-b border-primary/50 py-2 bg-transparent text-primary placeholder-primary/90 text-base md:text-xl focus:outline-none focus:border-gray-800 transition-colors"
                   required
                 />
@@ -102,6 +149,8 @@ export default function AdmissionsForm() {
                 <input
                   type="text"
                   placeholder="Preferred Visit Date"
+                  value={visitDate}
+                  onChange={(e) => setVisitDate(e.target.value)}
                   onFocus={(e) => (e.target.type = "date")}
                   onBlur={(e) => (e.target.value === "" ? (e.target.type = "text") : null)}
                   className="w-full border-b border-primary/50 py-2 bg-transparent text-primary placeholder-primary/90 text-base md:text-xl focus:outline-none focus:border-gray-800 transition-colors"
@@ -109,11 +158,12 @@ export default function AdmissionsForm() {
               </div>
 
               <div className="mt-2 flex justify-center md:justify-start">
-                <Button type="submit">
-                  Submit
+                <Button type="submit" disabled={submitting}>
+                  {submitting ? 'Submitting...' : 'Submit'}
                 </Button>
               </div>
             </form>
+            
           </div>
 
           {/* Right Column: Map Section (Appears first on mobile due to flex-col-reverse) */}

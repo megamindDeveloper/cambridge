@@ -49,16 +49,14 @@ export default function StyledMap({
                     zoom={zoom}
                     options={mapOptions}
                 >
-                    {/* FIXED: Passed object instead of calling 'new google.maps.Size' */}
                     {mainMarkerPosition && (
                         <Marker 
                             position={mainMarkerPosition} 
-                            icon={{ 
+                            icon={({ 
                                 url: customMarkerImage, 
-                                // @ts-ignore - The library accepts this object format even if types are strict
                                 scaledSize: { width: 40, height: 40 },
                                 anchor: { x: 20, y: 40 }
-                            }} 
+                            }) as any} 
                         />
                     )}
 

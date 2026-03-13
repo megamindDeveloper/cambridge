@@ -20,8 +20,53 @@ interface EnquiryModalProps {
   onClose: () => void;
 }
 
+const WEBHOOK_URL = "/api/enquiry";
+
 export default function EnquiryModal({ isOpen=true, onClose }: EnquiryModalProps) {
   const [countryCode, setCountryCode] = useState('+91');
+  const [parentName, setParentName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [childAge, setChildAge] = useState('');
+  const [grade, setGrade] = useState('');
+  const [location, setLocation] = useState('');
+  const [visitDate, setVisitDate] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+         setSubmitted(true);
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          formType: 'enquiry_modal',
+          parentName,
+          phone: `${countryCode}${phone}`,
+          childAge,
+          grade,
+          location,
+          visitDate,
+          premise:"campbridge"
+        }),
+      });
+     
+       
+         onClose();
+          setParentName("");
+          setPhone("");
+          setChildAge("");
+          setGrade("");
+          setLocation("");
+          setVisitDate("");
+   setSubmitted(false);
+    } catch (err) {
+      console.error('Webhook submission failed:', err);
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   useEffect(() => {
     if (isOpen) {
@@ -51,7 +96,7 @@ export default function EnquiryModal({ isOpen=true, onClose }: EnquiryModalProps
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute right-6 cursor-pointer top-6 text-gray-400 hover:text-black transition-colors"
+          className="absolute right-6 cursor-pointer top-6 text-gray-400 hover:text-primary transition-colors"
           aria-label="Close modal"
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -62,18 +107,21 @@ export default function EnquiryModal({ isOpen=true, onClose }: EnquiryModalProps
 
         {/* Heading */}
         <div className="mb-8 text-center">
-          <h2 className="text-2xl md:text-[30px]  font-bold text-[#1A1A1A] leading-tight">
+          <h2 className="text-2xl md:text-[30px]  font-bold text-primary leading-tight">
             Admissions Open 2026-27 Enquire for <br /> Nursery to Grade 10
           </h2>
           {/* <p className="text-gray-500 mt-2 text-base"></p> */}
         </div>
 
         {/* Form - Styled exactly like your AdmissionsForm */}
-        <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
+      
+        <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
           <div>
             <input
               type="text"
               placeholder="Parent Name"
+              value={parentName}
+              onChange={(e) => setParentName(e.target.value)}
               className="w-full border-b border-primary/50 py-2 bg-transparent text-primary placeholder-primary/90 text-base md:text-xl focus:outline-none focus:border-gray-800 transition-colors"
               required
             />
@@ -94,6 +142,8 @@ export default function EnquiryModal({ isOpen=true, onClose }: EnquiryModalProps
             <input
               type="tel"
               placeholder="Parent Phone Number"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
               className="w-full bg-transparent text-primary placeholder-primary/90 text-base md:text-xl focus:outline-none"
               required
             />
@@ -103,12 +153,16 @@ export default function EnquiryModal({ isOpen=true, onClose }: EnquiryModalProps
             <input
               type="text"
               placeholder="Child's Age"
+              value={childAge}
+              onChange={(e) => setChildAge(e.target.value)}
               className="w-full border-b border-primary/50 py-2 bg-transparent text-primary placeholder-primary/90 text-base md:text-xl focus:outline-none focus:border-gray-800 transition-colors"
               required
             />
             <input
               type="text"
               placeholder="Grade"
+              value={grade}
+              onChange={(e) => setGrade(e.target.value)}
               className="w-full border-b border-primary/50 py-2 bg-transparent text-primary placeholder-primary/90 text-base md:text-xl focus:outline-none focus:border-gray-800 transition-colors"
               required
             />
@@ -118,6 +172,8 @@ export default function EnquiryModal({ isOpen=true, onClose }: EnquiryModalProps
             <input
               type="text"
               placeholder="Located in"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
               className="w-full border-b border-primary/50 py-2 bg-transparent text-primary placeholder-primary/90 text-base md:text-xl focus:outline-none focus:border-gray-800 transition-colors"
               required
             />
@@ -127,6 +183,8 @@ export default function EnquiryModal({ isOpen=true, onClose }: EnquiryModalProps
             <input
               type="text"
               placeholder="Preferred Visit Date"
+              value={visitDate}
+              onChange={(e) => setVisitDate(e.target.value)}
               onFocus={(e) => (e.target.type = "date")}
               onBlur={(e) => (e.target.value === "" ? (e.target.type = "text") : null)}
               className="w-full border-b border-primary/50 py-2 bg-transparent text-primary placeholder-primary/90 text-base md:text-xl focus:outline-none focus:border-gray-800 transition-colors"
@@ -134,11 +192,13 @@ export default function EnquiryModal({ isOpen=true, onClose }: EnquiryModalProps
           </div>
 
           <div className="mt-4 flex justify-center">
-            <Button type="submit" className="">
-              Submit Enquiry
+            <Button type="submit" className="" disabled={submitting}>
+              {submitting ? 'Submitting...' : 'Submit Enquiry'}
             </Button>
           </div>
         </form>
+      
+
       </div>
     </div>
   );

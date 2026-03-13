@@ -79,7 +79,7 @@ export default function AdmissionSteps() {
           <h2 className="text-3xl md:text-4xl font-bold text-primary leading-tight mb-3 tracking-tight">
             Admit your Child in just <br className="md:hidden" />4 Steps
           </h2>
-          <p className="text-base md:text-xl text-primary font-bold">
+          <p className="text-base md:text-xl text-primary/70 font-bold">
             Visit the campus and explore the environment before making a decision.
           </p>
         </div>

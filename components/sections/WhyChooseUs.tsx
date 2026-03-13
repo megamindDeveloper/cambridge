@@ -86,7 +86,15 @@ const cardsData = [
   }
 ];
 
-const Card = ({ card }) => (
+interface CardProps {
+  card: {
+    title: string;
+    bgColor: string;
+    svgOutline: React.ReactNode;
+  };
+}
+
+const Card = ({ card }: CardProps) => (
   <div className={`${card.bgColor} rounded-2xl px-6 py-8 relative overflow-hidden transition-transform duration-300 md:hover:-translate-y-2 shadow-sm min-h-[220px] h-full flex items-center lg:items-start`}>
     <h3 className="text-white text-2xl lg:text-[28px] font-semibold whitespace-pre-line relative z-10 leading-[1.2]">
       {card.title}

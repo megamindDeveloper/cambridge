@@ -19,7 +19,7 @@ const facilities = [
 ];
 
 // Reusable Card Component
-const FacilityCard = ({ text, idx }) => (
+const FacilityCard = ({ text, idx }: { text: string; idx: number }) => (
   <div className="group h-[180px] md:h-[230px] w-full [perspective:1000px]">
     <div className="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
       {/* Front face (Text) */}
