@@ -40,7 +40,7 @@ export default function StyledMap({
             { featureType: "administrative", stylers: [{ visibility: "off" }] },
         ],
         disableDefaultUI: true,
-        gestureHandling: "greedy",
+        gestureHandling: "none", // Allows the user to scroll past the map without it getting stuck
     }), []);
 
     return (
@@ -71,11 +71,14 @@ export default function StyledMap({
                                 key={loc.id}
                                 center={{ lat: loc.lat, lng: loc.lng }}
                                 radius={300} // Increased radius slightly to act as a dot at higher zoom or keep it visible
+                                onClick={() => {
+                                    window.open(`https://www.google.com/maps/search/?api=1&query=${loc.lat},${loc.lng}`, '_blank');
+                                }}
                                 options={{
                                     fillColor: '#E31C22', // Red fill
                                     fillOpacity: 1, // Solid fill
                                     strokeWeight: 0, // No border
-                                    clickable: false,
+                                    clickable: true,
                                 }}
                             />
                         );

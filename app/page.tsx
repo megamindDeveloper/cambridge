@@ -82,7 +82,7 @@ const MAP_DATA = [
   },
   {
     key: "location-7",
-    title: "Other Area",
+    title: "Lalbagh",
     icon: "/icons/everydayIcon.svg",
     points: [106],
     viewport: {

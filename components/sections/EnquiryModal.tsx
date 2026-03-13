@@ -147,7 +147,7 @@ export default function EnquiryModal({ isOpen=true, onClose }: EnquiryModalProps
                 <option key={c} value={c}>{c}</option>
               ))}
             </select>
-            <span className="me-2 text-primary/50 font-medium">|</span>
+            <span className="mr-4 text-primary/50 font-medium">|</span>
             <input
               type="tel"
               placeholder="Parent Phone Number"
