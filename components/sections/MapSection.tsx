@@ -26,22 +26,20 @@ export default function MapSection({
     customMarkerImage,
     title = "Transport Routes across all parts of Mangalore" 
 }: MapSectionProps) {
-    // We pass all points as "active" so they are always visible
     const allPoints = data.map(item => item.points[0]);
-
-    // Handle separate zoom and centering for mobile devices
+    
     const [isMobile, setIsMobile] = useState(false);
+    const [hoveredPoint, setHoveredPoint] = useState<number | null>(null);
 
     useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth < 1024);
-        handleResize(); // Initial check
+        handleResize();
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     if (!data || data.length === 0) return null;
 
-    // Mobile adjustments: zoom out a bit and use original center so the map is visible above the bottom sheet
     const mapCenter = isMobile ? { lat: 12.72, lng: 74.93 } : data[0].viewport.center; 
     const mapZoom = isMobile ? 10 : data[0].viewport.zoom;
 
@@ -49,12 +47,13 @@ export default function MapSection({
         <section className="relative md:h-screen h-[100vh] w-full bg-[#EAEAEA] overflow-hidden">
             <div className="absolute inset-0 w-full h-full z-0">
                 <StyledMap
-                    // Dynamically adjusts between mobile/desktop fixed center
                     center={mapCenter}
                     zoom={mapZoom}
                     allowedPoints={allPoints}
                     mainMarkerPosition={mainMarkerPosition}
                     customMarkerImage={customMarkerImage}
+                    hoveredPoint={hoveredPoint}
+                    setHoveredPoint={setHoveredPoint}
                 />
             </div>
 
@@ -66,17 +65,27 @@ export default function MapSection({
                     </h2>
 
                     <div className="space-y-4">
-                        {data.map((item) => (
-                            <a
-                                key={item.key}
-                                href={`https://www.google.com/maps/search/?api=1&query=${item.viewport.center.lat},${item.viewport.center.lng}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="block w-full text-left text-[20px] text-primary hover:text-[#E31C22] transition-colors cursor-pointer"
-                            >
-                                {item.title}
-                            </a>
-                        ))}
+                        {data.map((item) => {
+                            // Check if this specific item is currently hovered
+                            const isHovered = hoveredPoint === item.points[0];
+                            
+                            return (
+                                <a
+                                    key={item.key}
+                                    href={`https://www.google.com/maps/search/?api=1&query=$${item.viewport.center.lat},${item.viewport.center.lng}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    // Conditionally apply the red color if hovered, otherwise use primary
+                                    className={`block w-full text-left text-[20px] transition-colors cursor-pointer hover:text-[#E31C22] ${
+                                        isHovered ? 'text-[#E31C22]' : 'text-primary'
+                                    }`}
+                                    onMouseEnter={() => setHoveredPoint(item.points[0])}
+                                    onMouseLeave={() => setHoveredPoint(null)}
+                                >
+                                    {item.title}
+                                </a>
+                            );
+                        })}
                     </div>
                 </div>
             </div>
@@ -87,17 +96,27 @@ export default function MapSection({
                     {title}
                 </h2>
                  <div className="flex flex-col space-y-4 max-h-[100vh] overflow-y-auto">
-                    {data.map((item) => (
-                        <a
-                            key={item.key}
-                            href={`https://www.google.com/maps/search/?api=1&query=${item.viewport.center.lat},${item.viewport.center.lng}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block text-[18px] text-[#2b2b2b] hover:text-[#E31C22] transition-colors cursor-pointer"
-                        >
-                            {item.title}
-                        </a>
-                    ))}
+                    {data.map((item) => {
+                        // Check if this specific item is currently hovered
+                        const isHovered = hoveredPoint === item.points[0];
+
+                        return (
+                            <a
+                                key={item.key}
+                                href={`https://www.google.com/maps/search/?api=1&query=$${item.viewport.center.lat},${item.viewport.center.lng}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                // Conditionally apply the red color if hovered, otherwise use dark gray
+                                className={`block text-[18px] transition-colors cursor-pointer hover:text-[#E31C22] ${
+                                    isHovered ? 'text-[#E31C22]' : 'text-[#2b2b2b]'
+                                }`}
+                                onMouseEnter={() => setHoveredPoint(item.points[0])}
+                                onMouseLeave={() => setHoveredPoint(null)}
+                            >
+                                {item.title}
+                            </a>
+                        );
+                    })}
                 </div>
             </div>
         </section>

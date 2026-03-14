@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const features = [
   {
@@ -18,7 +19,7 @@ const features = [
   {
     id: 2,
     title: "Robotics & Technology",
-    description: "Equipping students with modern skills in robotics and technology.",
+    description: "Dedicated robotics labs and technology integration in learning.",
     icon: (
       <svg width="32" height="32" viewBox="0 0 40 36" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M27.843 0H12.157C10.617 0 9.19236 0.822321 8.4213 2.15726L0.578294 15.7415C-0.192765 17.0765 -0.192765 18.719 0.578294 20.0539L8.4213 33.6382C9.19236 34.9732 10.6149 35.7955 12.157 35.7955H27.843C29.383 35.7955 30.8076 34.9732 31.5787 33.6382L39.4217 20.0539C40.1928 18.719 40.1928 17.0765 39.4217 15.7415L31.5787 2.15726C30.8076 0.822321 29.3851 0 27.843 0Z" fill="#FB7824"/>
@@ -29,7 +30,7 @@ const features = [
   {
     id: 3,
     title: "Sports Infrastructure",
-    description: "World class sports facilities aiming at physical fitness and athletic development.",
+    description: "Turf ground for football and cricket with multi-court sports facilities.",
     icon: (
       <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M30.4043 6.31892L30.0994 7.76263L31.4753 7.23183C36.2563 5.38908 40.0378 11.5385 36.2356 14.9736L35.1401 15.9618L36.5669 16.3421C41.5191 17.6615 40.9639 24.8594 35.8667 25.4033L34.3985 25.5596L35.3283 26.7059C38.5602 30.6831 33.879 36.1813 29.4368 33.6251L28.1569 32.8892L28.2359 34.363C28.5126 39.4809 21.4936 41.1768 19.4024 36.4975L18.8001 35.1498L17.9982 36.3883C15.2143 40.6912 8.53975 37.9374 9.59571 32.923L9.90064 31.4793L8.52469 32.0101C3.74371 33.8529 -0.0377918 27.7035 3.76441 24.2683L4.8599 23.2801L3.43313 22.8999C-1.51915 21.5804 -0.963874 14.3826 4.13334 13.8386L5.60152 13.6824L4.67167 12.5361C1.4398 8.55883 6.12102 3.0607 10.5632 5.61683L11.8432 6.3528L11.7641 4.87898C11.4874 -0.238935 18.5064 -1.93487 20.5976 2.74448L21.2 4.09219L22.0018 2.85365C24.7857 -1.44924 31.4603 1.30453 30.4043 6.31892Z" fill="#3F9C49"/>
@@ -40,7 +41,7 @@ const features = [
   {
     id: 4,
     title: "Leadership Skills",
-    description: "Developing future leaders with strong communication and management skills.",
+    description: "Monthly competitions and stage programs.",
     icon: (
       <svg width="28" height="30" viewBox="0 0 37 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M3.08263 3.10245L0.0152446 36.1234C-0.227141 38.7404 2.45193 40.6381 4.84082 39.5396L34.9698 25.6861C37.3566 24.5886 37.6611 21.3166 35.5176 19.7991L8.45401 0.632638C6.30958 -0.886923 3.32501 0.485407 3.08263 3.10245Z" fill="#0095D6"/>
@@ -51,7 +52,7 @@ const features = [
   {
     id: 5,
     title: "Balanced Development",
-    description: "Holistic approach covering academic, emotional, and social well-being.",
+    description: "Academics, sports, skills and values combined.",
     icon: (
       <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="20" cy="20" r="20" fill="#662C8A"/>
@@ -63,9 +64,6 @@ const features = [
 
 export default function WhatMakesUsDifferent() {
   const [activeId, setActiveId] = useState(1);
-
-  // Dynamically get the active image for the main display
-  const activeImage = features.find(f => f.id === activeId)?.image || features[0].image;
 
   return (
     <section className="relative w-full pt-10 lg:pt-24 z-10 ">
@@ -83,13 +81,13 @@ export default function WhatMakesUsDifferent() {
 
             {/* Image with Yellow Shape */}
             <div className="relative mt-4 max-w-md lg:max-w-none mx-auto lg:mx-0 w-full">
-              {/* Image Container */}
+              {/* STATIC Image Container */}
               <div className="relative z-10 rounded-xl overflow-hidden aspect-[4/3] shadow-md bg-gray-200">
                 <Image 
-                  src={activeImage} // Updated to show active feature image
+                  src="/images/hero/4.png" 
                   alt="Cambridge Different Feature"
                   fill
-                  className="object-cover transition-opacity duration-500"
+                  className="object-cover"
                 />
               </div>
 
@@ -110,8 +108,9 @@ export default function WhatMakesUsDifferent() {
               return (
                 <div 
                   key={feature.id} 
-                  className={`flex items-stretch justify-between gap-4 border-b border-[#DBDBDB80] last:border-b-0 overflow-hidden transition-all duration-300 ${isActive ? 'py-5' : 'py-4 cursor-pointer hover:bg-gray-50/50'}`}
-                  onClick={() => !isActive && setActiveId(feature.id)}
+                  // Kept static py-4 to stop layout from jumping up and down on hover
+                  className="flex items-start justify-between border-b border-[#DBDBDB80] last:border-b-0 overflow-hidden py-4 cursor-pointer hover:bg-gray-50/50 transition-colors duration-300"
+                  onMouseEnter={() => !isActive && setActiveId(feature.id)}
                 >
                   <div className="flex-1 min-w-0">
                     {/* Title & Icon Row */}
@@ -119,34 +118,50 @@ export default function WhatMakesUsDifferent() {
                       <div className="flex-shrink-0 w-8 lg:w-10 flex items-center justify-center scale-90 lg:scale-100">
                         {feature.icon}
                       </div>
-                      <h3 className={`text-lg md:text-xl lg:text-[28px] font-semibold transition-colors ${isActive ? 'text-[#1A1A1A]' : 'text-[#333333]'}`}>
+                      <h3 className={`text-lg md:text-xl lg:text-[28px] font-semibold transition-colors duration-300 ${isActive ? 'text-[#1A1A1A]' : 'text-[#333333]'}`}>
                         {feature.title}
                       </h3>
                     </div>
                     
-                    {/* Expanded Content */}
-                    <div 
-                      className={`grid transition-all duration-300 ease-in-out ${isActive ? 'grid-rows-[1fr] opacity-100 mt-2' : 'grid-rows-[0fr] opacity-0'}`}
-                    >
-                      <div className="overflow-hidden flex items-stretch justify-between gap-6 ml-11 lg:ml-[60px] pb-2">
-                        <p className="text-gray-600 text-sm md:text-base leading-relaxed flex-1 py-1">
-                          {feature.description}
-                        </p>
-                      </div>
-                    </div>
+                    {/* Framer Motion Expanded Content */}
+                    <AnimatePresence initial={false}>
+                      {isActive && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="ml-11 lg:ml-[60px] pb-2 pt-2">
+                            <p className="text-gray-600 text-sm md:text-base leading-relaxed flex-1 m-0">
+                              {feature.description}
+                            </p>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
 
-                  {/* Thumbnail Image - Hidden on mobile, shown on SM up */}
-                  {isActive && (
-                    <div className="w-[100px] lg:w-[130px] min-h-[70px] lg:min-h-[75px] relative rounded-md overflow-hidden flex-shrink-0 shadow-sm bg-gray-200 hidden sm:block">
-                       <Image 
-                         src={feature.image} 
-                         alt={feature.title}
-                         fill
-                         className="object-cover"
-                       />
-                    </div>
-                  )}
+                  {/* Thumbnail Image - Fixed weird clipping & layout shifting */}
+                  <AnimatePresence>
+                    {isActive && (
+                      <motion.div 
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        transition={{ duration: 0.3 }}
+                        className="w-[100px] lg:w-[130px] h-[70px] lg:h-[75px] relative rounded-md overflow-hidden flex-shrink-0 shadow-sm bg-gray-200 hidden sm:block ml-4"
+                      >
+                         <Image 
+                           src={feature.image} 
+                           alt={feature.title}
+                           fill
+                           className="object-cover"
+                         />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               );
             })}

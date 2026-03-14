@@ -81,7 +81,9 @@ export default function AdmissionSteps() {
         </div>
 
         {/* Steps Grid/Flex */}
-        <div className="flex flex-col md:flex-row justify-between w-full relative">
+        {/* CHANGED: Swapped flex-col for grid grid-cols-2 on mobile, while keeping md:flex for desktop */}
+        <div className="grid grid-cols-2 md:flex md:flex-row justify-between w-full relative">
+          
           {/* SVG LINE - HIDDEN ON MOBILE (hidden md:block) */}
           <div className="hidden md:block absolute top-[60px] left-[60px] right-[60px] z-0 -translate-y-1/2">
             {/* Base Grey Dashed Line */}

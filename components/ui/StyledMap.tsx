@@ -19,6 +19,9 @@ interface StyledMapProps {
   allowedPoints?: number[];
   mainMarkerPosition?: { lat: number; lng: number };
   customMarkerImage?: string;
+  // Add hover state props
+  hoveredPoint?: number | null;
+  setHoveredPoint?: (id: number | null) => void;
 }
 
 export default function StyledMap({
@@ -27,20 +30,22 @@ export default function StyledMap({
   allowedPoints,
   mainMarkerPosition,
   customMarkerImage = "/svgs/location.svg",
+  hoveredPoint,
+  setHoveredPoint,
 }: StyledMapProps) {
 
   const mapOptions = useMemo(() => ({
     styles: [
       { featureType: "all", elementType: "labels", stylers: [{ visibility: "off" }] },
-      { featureType: "water", elementType: "geometry", stylers: [{ color: "#e2e2e2" }] }, // Light gray for sea/river
-      { featureType: "landscape", elementType: "geometry", stylers: [{ color: "#ffffff" }] }, // Crisp white for land
-      { featureType: "road", elementType: "geometry", stylers: [{ color: "#d1d1d1" }] }, // Slightly darker gray for roads
+      { featureType: "water", elementType: "geometry", stylers: [{ color: "#e2e2e2" }] },
+      { featureType: "landscape", elementType: "geometry", stylers: [{ color: "#ffffff" }] },
+      { featureType: "road", elementType: "geometry", stylers: [{ color: "#d1d1d1" }] },
       { featureType: "poi", stylers: [{ visibility: "off" }] },
       { featureType: "transit", stylers: [{ visibility: "off" }] },
       { featureType: "administrative", stylers: [{ visibility: "off" }] },
     ],
     disableDefaultUI: true,
-    gestureHandling: "none", // Allows the user to scroll past the map without it getting stuck
+    gestureHandling: "none", 
   }), []);
 
   return (
@@ -66,19 +71,22 @@ export default function StyledMap({
           {LOCATIONS.map((loc) => {
             if (allowedPoints && !allowedPoints.includes(loc.id)) return null;
 
+            const isHovered = hoveredPoint === loc.id;
+
             return (
               <Circle
                 key={loc.id}
                 center={{ lat: loc.lat, lng: loc.lng }}
-                radius={300} // Increased radius slightly to act as a dot at higher zoom or keep it visible
-                onClick={() => {
-                  window.open(`https://www.google.com/maps/search/?api=1&query=${loc.lat},${loc.lng}`, '_blank');
-                }}
+                // Scale up by 10% (300 -> 330) when hovered
+                radius={isHovered ? 370 : 300} 
+                // Handle map dot hover
+                onMouseOver={() => setHoveredPoint?.(loc.id)}
+                onMouseOut={() => setHoveredPoint?.(null)}
                 options={{
-                  fillColor: '#E31C22', // Red fill
-                  fillOpacity: 1, // Solid fill
-                  strokeWeight: 0, // No border
-                  clickable: true,
+                  fillColor: '#E31C22',
+                  fillOpacity: 1,
+                  strokeWeight: 0,
+                  clickable: true, // Required to detect mouseOver/mouseOut events
                 }}
               />
             );

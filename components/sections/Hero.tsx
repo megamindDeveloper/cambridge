@@ -37,7 +37,7 @@ export default function Hero() {
 
   return (
     <div className=" bg-white relative overflow-hidden font-sans">
-      {/* Background Red Curve SVG - Adjusted scale for mobile to prevent massive overflow */}
+      {/* Background Red Curve SVG - Desktop */}
       <div className="absolute hidden md:block -top-40 md:-top-96 -right-1 z-0 pointer-events-none w-[200px] md:w-[500px] lg:w-[600px] translate-x-[20%] md:translate-x-[30%] -translate-y-10">
         <svg viewBox="0 0 666 1129" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
           <path d="M126.853 2.05966C-258.442 643.507 358.43 827.747 662.219 1125.5" stroke="url(#paint0_linear_68_2)" strokeWidth="8" />
@@ -50,31 +50,50 @@ export default function Hero() {
         </svg>
       </div>
 
-      {/* --- NAVBAR SECTION --- */}
-    <nav className="w-full relative z-50">
-  <div className="container mx-auto px-4 py-6 md:py-10 flex justify-between items-center">
-    
-    {/* FIX: Single Image component. 
-      We set the max width/height for Next.js intrinsic sizing, 
-      then use Tailwind (w-[180px] md:w-[220px] h-auto) to scale it responsibly.
-    */}
-    <Image 
-      src="/svgs/navLogo.svg" 
-      width={220} 
-      height={220} 
-      alt="Logo" 
-      className="w-[180px] md:w-[220px] h-auto"
-      priority 
+      {/* Background Red Curve SVG - Mobile */}
+{/* Background Red Curve SVG - Mobile (Centered) */}
+{/* Background Red Curve SVG - Mobile (Fully Centered) */}
+<div className="absolute block md:hidden top-1/2 left-1/2 z-0 pointer-events-none w-[110vw] -translate-x-1/2  -bottom-10 ">
+  <svg viewBox="0 0 435 359" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+    <path 
+      d="M1.66406 1.11049C104.244 154.762 355.365 204.571 432.382 357.73" 
+      stroke="url(#paint0_linear_128_31)" 
+      strokeWidth="4"
     />
+    <defs>
+      <linearGradient id="paint0_linear_128_31" x1="-93.6111" y1="-348.276" x2="-350.661" y2="2108.34" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#E31C22"/>
+        <stop offset="1" stopColor="#FB7824"/>
+      </linearGradient>
+    </defs>
+  </svg>
+</div>
 
-    <div>
-      <Button onClick={openEnquiryModal}>
-        Apply Now
-      </Button>
-    </div>
+      {/* --- NAVBAR SECTION --- */}
+      <nav className="w-full relative z-50">
+        <div className="container mx-auto px-4 py-6 md:py-10 flex justify-between items-center">
+          
+          {/* FIX: Single Image component. 
+            We set the max width/height for Next.js intrinsic sizing, 
+            then use Tailwind (w-[180px] md:w-[220px] h-auto) to scale it responsibly.
+          */}
+          <Image 
+            src="/svgs/navLogo.svg" 
+            width={220} 
+            height={220} 
+            alt="Logo" 
+            className="w-[180px] md:w-[220px] h-auto"
+            priority 
+          />
 
-  </div>
-</nav>
+          <div>
+            <Button onClick={openEnquiryModal}>
+              Apply Now
+            </Button>
+          </div>
+
+        </div>
+      </nav>
 
       {/* --- HERO SECTION --- */}
       <section className="relative w-full ">
@@ -104,14 +123,14 @@ export default function Hero() {
                   </Button>
                 </div>
 
-                <div className="md:mt-auto md:space-y-1 max-w-[80%]">
+                <div className="md:mt-auto md:space-y-1 hidden md:block max-w-[80%]">
                   <p className="text-primary font-bold text-lg md:text-xl  transition-all duration-300">{campusData[activeIndex].name}</p>
                   <p className="text-[#191919] text-lg md:text-xl transition-all duration-300">{campusData[activeIndex].location}</p>
                 </div>
               </div>
 
               {/* Right Column: Swiper Slider */}
-              <div className="relative col-span-7 w-full mt-10 lg:mt-0">
+              <div className="relative col-span-7 w-full mt-3 lg:mt-0">
                 <div className="w-full rounded-xl overflow-hidden shadow-lg bg-gray-100">
                   <Swiper
                     modules={[Pagination, Autoplay]}
@@ -141,15 +160,17 @@ export default function Hero() {
                     ))}
                   </Swiper>
                 </div>
-
+ <div className="md:mt-auto mt-6 md:space-y-1 md:hidden  max-w-[80%]">
+                  <p className="text-primary font-bold text-lg md:text-xl  transition-all duration-300">{campusData[activeIndex].name}</p>
+                  <p className="text-[#191919] text-lg md:text-xl transition-all duration-300">{campusData[activeIndex].location}</p>
+                </div>
                 {/* Playful Green Face Graphic - Adjusted positioning so it doesn't vanish on mobile */}
-                <div className="absolute -bottom-6 -left-6 md:-bottom-10 md:-left-20 z-20 w-24 h-24 md:w-36 md:h-36 drop-shadow-md">
+                <div className="absolute -top-6 -right-6 md:-bottom-10 md:-left-20 z-20 w-24 h-24 md:w-36 md:h-36 drop-shadow-md">
                   <svg width="100%" height="100%" viewBox="0 0 219 218" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M88.7765 196.314C137.114 207.894 185.687 178.096 197.267 129.758C208.847 81.4199 179.049 32.8469 130.711 21.2672C82.3727 9.68738 33.7998 39.4858 22.22 87.8237C10.6402 136.162 40.4386 184.735 88.7765 196.314Z"
                       fill="#91E69A"
                     />
-                    {/* ... (rest of your SVG paths) ... */}
                     <path
                       d="M70.0281 112.408C78.2993 114.389 86.981 107.745 89.4191 97.5671C91.8573 87.3893 87.1287 77.5323 78.8576 75.5508C70.5864 73.5694 61.9048 80.2139 59.4666 90.3917C57.0284 100.57 61.757 110.427 70.0281 112.408Z"
                       fill="#3F9C49"

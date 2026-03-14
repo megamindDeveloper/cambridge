@@ -1,7 +1,9 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
 import 'swiper/css';
+
 const cardsData = [
   {
     title: "Confident\nCommunication",
@@ -105,10 +107,14 @@ const Card = ({ card }: CardProps) => (
 );
 
 export default function WhyChooseUs() {
+  // 1. ADD STATE FOR CUSTOM NAVIGATION BUTTONS
+  const [prevEl, setPrevEl] = useState<HTMLButtonElement | null>(null);
+  const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null);
+
   return (
     <section className="w-full bg-white relative pt-10 md:pt-20">
       <div className="container mx-auto px-4">
-        <div className="border-b-[3px] border-[#DBDBDB] pb-16 md:pb-32">
+        <div className="border-b-[3px] border-[#DBDBDB] pb-12 md:pb-32">
           
           <div className="flex flex-col md:flex-row items-center justify-between md:gap-8 pb-8 md:mb-16">
             <div className="md:w-3/5">
@@ -116,7 +122,7 @@ export default function WhyChooseUs() {
                 Choosing the right school is one of the most important decisions for your child.
               </h2>
             </div>
-            {/* Sticker SVG (kept from your original code) */}
+            {/* Sticker SVG */}
             <div className="md:w-2/5 flex justify-end">
                <svg width="300" height="245" viewBox="0 0 399 326" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-[280px] h-auto object-contain drop-shadow-md">
                 <path d="M161.529 150.571L159.909 158.241L167.219 155.421C192.619 145.631 212.709 178.301 192.509 196.551L186.689 201.801L194.269 203.821C220.579 210.831 217.629 249.071 190.549 251.961L182.749 252.791L187.689 258.881C204.859 280.011 179.989 309.221 156.389 295.641L149.589 291.731L150.009 299.561C151.479 326.751 114.189 335.761 103.079 310.901L99.8792 303.741L95.6192 310.321C80.8292 333.181 45.3692 318.551 50.9792 291.911L52.5992 284.241L45.2892 287.061C19.8892 296.851 -0.200787 264.181 19.9992 245.931L25.8192 240.681L18.2392 238.661C-8.07079 231.651 -5.12078 193.411 21.9592 190.521L29.7592 189.691L24.8192 183.601C7.64921 162.471 32.5192 133.261 56.1192 146.841L62.9192 150.751L62.4992 142.921C61.0292 115.731 98.3192 106.721 109.429 131.581L112.629 138.741L116.889 132.161C131.679 109.301 167.139 123.931 161.529 150.571Z" fill="#FFE04F"/>
@@ -133,8 +139,14 @@ export default function WhyChooseUs() {
           </div>
 
           {/* 2. Mobile Swiper (Active below 1024px) */}
-          <div className="lg:hidden">
+          <div className="lg:hidden relative">
             <Swiper
+              modules={[Navigation]}
+              // 2. PASS THE STATE REFS TO SWIPER NAVIGATION
+              navigation={{
+                prevEl: prevEl,
+                nextEl: nextEl,
+              }}
               spaceBetween={16}
               slidesPerView={1.1}
               breakpoints={{
@@ -147,6 +159,32 @@ export default function WhyChooseUs() {
                 </SwiperSlide>
               ))}
             </Swiper>
+
+            {/* Custom SVG Navigation Buttons */}
+            <div className="flex justify-end items-center gap-4 mt-10">
+              {/* 3. ASSIGN THE REF SETTER TO THE BUTTONS */}
+              <button 
+                ref={(node) => setPrevEl(node)} 
+                className="transition-transform active:scale-95 disabled:opacity-50 disabled:active:scale-100"
+              >
+                <svg width="37" height="35" viewBox="0 0 37 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="0.5" y="0.5" width="35.1379" height="33.8076" rx="16.9038" fill="#FFC8CA" fillOpacity="0.67"/>
+                  <rect x="0.5" y="0.5" width="35.1379" height="33.8076" rx="16.9038" stroke="#FFBBBB"/>
+                  <path d="M17.1829 12.748L12.7488 17.4038M12.7488 17.4038L17.1829 22.0596M12.7488 17.4038L23.3906 17.4038" stroke="#E31C22" strokeOpacity="0.26" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+              
+              <button 
+                ref={(node) => setNextEl(node)} 
+                className="transition-transform active:scale-95 disabled:opacity-50 disabled:active:scale-100"
+              >
+                <svg width="37" height="35" viewBox="0 0 37 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="0.5" y="0.5" width="35.1379" height="33.8076" rx="16.9038" fill="#FFC8CA" fillOpacity="0.67"/>
+                  <rect x="0.5" y="0.5" width="35.1379" height="33.8076" rx="16.9038" stroke="#FFBBBB"/>
+                  <path d="M18.9558 12.748L23.3899 17.4038M23.3899 17.4038L18.9558 22.0596M23.3899 17.4038L12.748 17.4038" stroke="#E31C22" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+            </div>
           </div>
 
           {/* 3. Original Desktop Grid (Active from 1024px up) */}
