@@ -44,7 +44,7 @@ const DesktopFacilityCard = ({ text, idx }: { text: string; idx: number }) => (
 
       {/* Back face (Image) */}
       <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-lg overflow-hidden border border-[#DBDBDB] bg-white">
-        <Image src={`/image/cardImages/${idx + 1}.png`} alt={text.replace("\n", " ")} fill className="object-cover" />
+        <Image src={`/images/facilities/${idx + 1}.webp`} alt={text.replace("\n", " ")} fill className="object-cover" />
       </div>
     </div>
   </div>

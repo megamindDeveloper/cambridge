@@ -4,10 +4,10 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
 const tabsData = [
-  { id: "nursery", label: "Nursery", image: "/images/hero/1.png" },
-  { id: "primary", label: "Primary School", image: "/images/hero/2.png" },
-  { id: "middle", label: "Middle School", image: "/images/hero/3.png" },
-  { id: "secondary", label: "Secondary School", image: "/images/hero/4.png" },
+  { id: "nursery", label: "Nursery", image: "/images/journey/1.webp" },
+  { id: "primary", label: "Primary School", image: "/images/journey/2.webp" },
+  { id: "middle", label: "Middle School", image: "/images/journey/3.webp" },
+  { id: "secondary", label: "Secondary School", image: "/images/journey/4.webp" },
 ];
 
 export default function LearningJourney() {

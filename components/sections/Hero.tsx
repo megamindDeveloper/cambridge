@@ -13,9 +13,9 @@ import Image from "next/image";
 
 const campusData = [
   { image: "/images/hero/1.png", name: "Green Campus", location: "Adyar, Mangalore." },
-  { image: "/images/hero/2.png", name: "Robotics and technology learning", location: "Adyar, Mangalore." },
-  { image: "/images/hero/3.png", name: "Sports turf and multi-court facilities", location: "Adyar, Mangalore." },
-  { image: "/images/hero/4.png", name: "Transport across Mangalore and surrounding areas", location: "Adyar, Mangalore." },
+  { image: "/images/hero/2.webp", name: "Robotics and technology learning", location: "Adyar, Mangalore." },
+  { image: "/images/hero/3.webp", name: "Sports turf and multi-court facilities", location: "Adyar, Mangalore." },
+  { image: "/images/hero/4.webp", name: "Transport across Mangalore and surrounding areas", location: "Adyar, Mangalore." },
 ];
 
 export default function Hero() {
