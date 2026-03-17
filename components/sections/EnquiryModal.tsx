@@ -3,18 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "../ui/Button";
 import { useSearchParams } from "next/navigation";
+import { COUNTRY_CODES } from "./AdmissionsForm";
 
-const COUNTRY_CODES = [
-  '+1', '+7', '+20', '+27', '+30', '+31', '+32', '+33', '+34', '+36',
-  '+39', '+40', '+41', '+43', '+44', '+45', '+46', '+47', '+48', '+49',
-  '+51', '+52', '+53', '+54', '+55', '+56', '+57', '+58', '+60', '+61',
-  '+62', '+63', '+64', '+65', '+66', '+81', '+82', '+84', '+86', '+90',
-  '+91', '+92', '+93', '+94', '+95', '+98', '+212', '+213', '+216',
-  '+218', '+220', '+221', '+234', '+254', '+255', '+256', '+260', '+263',
-  '+351', '+352', '+353', '+354', '+358', '+380', '+381', '+385', '+386',
-  '+420', '+421', '+886', '+960', '+961', '+962', '+963', '+964', '+965',
-  '+966', '+971', '+972', '+973', '+974', '+975', '+976', '+977',
-];
 
 interface EnquiryModalProps {
   isOpen: boolean;
@@ -117,7 +107,7 @@ export default function EnquiryModal({ isOpen=true, onClose }: EnquiryModalProps
         {/* Heading */}
         <div className="mb-8 text-center">
           <h2 className="text-2xl md:text-[30px]  font-bold text-primary leading-tight">
-            Admissions Open 2026-27 Enquire for <br /> Nursery to Grade 10
+            Admissions Open {new Date().getFullYear()}-{(new Date().getFullYear() + 1).toString().slice(-2)} <br /> Enquire for Nursery to Grade 10
           </h2>
           {/* <p className="text-gray-500 mt-2 text-base"></p> */}
         </div>

@@ -22,7 +22,7 @@ const facilities = [
 // Mobile Card Component: Image background with text overlay at bottom (No flip)
 const MobileFacilityCard = ({ text, idx }: { text: string; idx: number }) => (
   <div className="relative w-full h-[220px] sm:h-[260px] rounded-lg overflow-hidden border border-[#DBDBDB]">
-    <Image src={`/images/cardImages/${idx + 1}.webp`} alt={text.replace("\n", " ")} fill className="object-cover" />
+    <Image src={`/images/facilities/${idx + 1}.webp`} alt={text.replace("\n", " ")} fill className="object-cover" />
     {/* Dark gradient overlay to make text readable */}
     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
 

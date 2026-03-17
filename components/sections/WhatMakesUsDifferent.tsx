@@ -72,7 +72,7 @@ export default function WhatMakesUsDifferent() {
         <div className="flex flex-col lg:flex-row justify-between gap-10 lg:gap-24 ">
           
           {/* Left Side: Heading & Image */}
-          <div className="flex flex-col w-full lg:w-auto">
+          <div className="flex flex-col w-full lg:w-[35%]">
             <h2 className="text-3xl md:text-4xl font-bold text-primary max-w-xl leading-tight mb-8 lg:mb-12">
               What Makes Cambridge<br className="hidden md:block" />
               International School<br className="hidden md:block" />
@@ -106,9 +106,9 @@ export default function WhatMakesUsDifferent() {
               const isActive = feature.id === activeId;
               
               return (
-                <div 
+                <motion.div 
+                  layout // Smooths out changes in height for sibling elements
                   key={feature.id} 
-                  // Kept static py-4 to stop layout from jumping up and down on hover
                   className="flex items-start justify-between border-b border-[#DBDBDB80] last:border-b-0 overflow-hidden py-4 cursor-pointer hover:bg-gray-50/50 transition-colors duration-300"
                   onMouseEnter={() => !isActive && setActiveId(feature.id)}
                 >
@@ -123,7 +123,7 @@ export default function WhatMakesUsDifferent() {
                       </h3>
                     </div>
                     
-                    {/* Framer Motion Expanded Content */}
+                    {/* Framer Motion Expanded Text Content */}
                     <AnimatePresence initial={false}>
                       {isActive && (
                         <motion.div
@@ -143,26 +143,34 @@ export default function WhatMakesUsDifferent() {
                     </AnimatePresence>
                   </div>
 
-                  {/* Thumbnail Image - Fixed weird clipping & layout shifting */}
-                  <AnimatePresence>
+                  {/* Thumbnail Image - Fixed jumping logic */}
+                  <AnimatePresence initial={false}>
                     {isActive && (
                       <motion.div 
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.8 }}
+                        initial={{ opacity: 0, width: 0, height: 0, marginLeft: 0 }}
+                        animate={{ 
+                          opacity: 1, 
+                          width: "auto", 
+                          height: "auto", 
+                          marginLeft: "1rem" 
+                        }}
+                        exit={{ opacity: 0, width: 0, height: 0, marginLeft: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="w-[100px] lg:w-[130px] h-[70px] lg:h-[75px] relative rounded-md overflow-hidden flex-shrink-0 shadow-sm bg-gray-200 hidden sm:block ml-4"
+                        className="hidden sm:block overflow-hidden origin-right flex-shrink-0"
                       >
-                         <Image 
-                           src={feature.image} 
-                           alt={feature.title}
-                           fill
-                           className="object-cover"
-                         />
+                        {/* We put the actual image size on this inner wrapper, so the outer motion.div neatly unmasks it instead of popping it into existence */}
+                        <div className="w-[100px] lg:w-[130px] h-[70px] lg:h-[75px] relative rounded-md overflow-hidden shadow-sm bg-gray-200">
+                          <Image 
+                            src={feature.image} 
+                            alt={feature.title}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </div>
+                </motion.div>
               );
             })}
           </div> 

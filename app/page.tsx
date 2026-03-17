@@ -98,7 +98,7 @@ export default function LandingPage() {
       {/* Combined Wrapper for Differentiation & Campus Sections to share the background SVG line */}
       <div className="relative w-full overflow-hidden bg-white">
         {/* Background Diagonal Red SVG Line */}
-        <div className="absolute hidden md:block top-54 left-0 w-full lg:w-[1712px] xl:w-[2200px] z-0 pointer-events-none ">
+        <div className="absolute hidden md:block top-54 left-0 w-full lg:w-[100vw] xl:w-[100vw] z-0 pointer-events-none ">
           <svg viewBox="0 0 1712 1130" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
             <path d="M3.12012 2.50293C487.259 606.036 1511.35 1101.83 1710.68 1125.89" stroke="url(#paint0_linear_86_6)" strokeWidth="8" />
             <defs>
@@ -110,17 +110,16 @@ export default function LandingPage() {
           </svg>
         </div>
 
-          <div className="absolute top-54 md:hidden left-0 w-full lg:w-[1712px] xl:w-[2200px] z-0 pointer-events-none ">
+        <div className="absolute top-54 md:hidden left-0 w-full lg:w-[1712px] xl:w-[2200px] z-0 pointer-events-none ">
           <svg width="522" height="357" viewBox="0 0 522 357" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.62695 1.16309C110.339 153.249 312.569 270.897 520.807 355.026" stroke="url(#paint0_linear_128_35)" stroke-width="4"/>
-<defs>
-<linearGradient id="paint0_linear_128_35" x1="440.491" y1="-1911.7" x2="603.343" y2="552.957" gradientUnits="userSpaceOnUse">
-<stop stop-color="#E31C22"/>
-<stop offset="1" stop-color="#FB7824"/>
-</linearGradient>
-</defs>
-</svg>
-
+            <path d="M1.62695 1.16309C110.339 153.249 312.569 270.897 520.807 355.026" stroke="url(#paint0_linear_128_35)" stroke-width="4" />
+            <defs>
+              <linearGradient id="paint0_linear_128_35" x1="440.491" y1="-1911.7" x2="603.343" y2="552.957" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#E31C22" />
+                <stop offset="1" stop-color="#FB7824" />
+              </linearGradient>
+            </defs>
+          </svg>
         </div>
 
         <WhatMakesUsDifferent />

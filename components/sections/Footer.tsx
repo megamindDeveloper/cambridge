@@ -17,7 +17,7 @@ export default function Footer() {
                 src="/svgs/footer.svg" 
                 alt="The Cambridge International School" 
                 fill 
-                className="object-contain object-center lg:object-left" 
+                className="object-contain cursor-pointer object-center lg:object-left" 
               />
             </div>
             <p className="text-[#D1D1D1] text-lg mt-4">Adyar, Mangalore</p>
@@ -238,7 +238,7 @@ export default function Footer() {
 <div className="w-full border-t md:hidden border-[#333333]"></div>
           {/* Copyright Text */}
           <div className="text-center md:text-right">
-            <p className="text-[#999999] text-[13px] tracking-wide">© The Cambridge International School, 2026 | All Rights Reserved</p>
+            <p className="text-[#999999] text-[13px] tracking-wide">© The Cambridge International School, {new Date().getFullYear()} | All Rights Reserved</p>
           </div>
         </div>
       </div>

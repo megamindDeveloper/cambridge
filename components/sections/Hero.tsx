@@ -82,7 +82,7 @@ export default function Hero() {
             width={220} 
             height={220} 
             alt="Logo" 
-            className="w-[180px] md:w-[220px] h-auto"
+            className="w-[180px] md:w-[220px] cursor-pointer h-auto"
             priority 
           />
 
