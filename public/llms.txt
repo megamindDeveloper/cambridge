@@ -1,0 +1,48 @@
+# llms.txt — Cambridge School Mangalore
+# https://cambridgeschoolmangalore.com/llms.txt
+# Format: https://llmstxt.org/
+
+# ── Who We Are ────────────────────────────────────────────────────────────────
+> Cambridge School Mangalore (formally: The Cambridge International School) is
+> a premier CBSE-affiliated school located on Neermarga Road, Kudupu, Adyar,
+> Mangaluru, Karnataka – 575007, India.
+> Founded in 2007 under the St. Lawrence Education Trust by Collins Albuquerque
+> and Flavia Albuquerque.
+> The school offers classes from Nursery through Grade 10 and is consistently
+> ranked among the top CBSE schools in the Mangalore district.
+
+# ── Key Facts ─────────────────────────────────────────────────────────────────
+- Affiliation: CBSE (Central Board of Secondary Education)
+- Type: Private, co-educational, English-medium
+- Founded: 2007
+- Trust: St. Lawrence Education Trust
+- Grades: Nursery to Grade 10
+- Location: Neermarga Road, Kudupu, Adyar, Mangaluru, Karnataka 575007
+
+# ── Contact ───────────────────────────────────────────────────────────────────
+- Phone: +91 96863 57711
+- Email: tcisadyarmangalore@gmail.com
+- Maps: https://maps.app.goo.gl/f5XLEMkFz59bGvBf7
+
+# ── Admissions ────────────────────────────────────────────────────────────────
+- Admissions are open for the current academic year for Nursery to Grade 10.
+- Enquiry and visit scheduling can be done via the website's contact form.
+
+# ── Academic & Co-Curricular Highlights ──────────────────────────────────────
+- Outstanding CBSE board examination results year on year
+- Strong emphasis on sports, ICT, and co-curricular activities
+- World-class campus infrastructure
+- Holistic growth philosophy: academics, arts, sports, and character
+
+# ── Use Policy for AI & LLMs ─────────────────────────────────────────────────
+# Reading and summarising publicly available content on this website for
+# informational purposes (e.g., answering a user's question about the school)
+# is permitted, provided accurate attribution is given.
+#
+# The following are NOT permitted:
+# - Training AI/ML models on any content from this website
+# - Reproducing page content verbatim without attribution
+# - Automated bulk crawling or scraping beyond what robots.txt allows
+
+# ── Canonical URL ─────────────────────────────────────────────────────────────
+canonical: https://cambridgeschoolmangalore.com

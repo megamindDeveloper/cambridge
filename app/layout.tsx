@@ -10,81 +10,110 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Cambridge School Mangalore",
+  // ── Basics ────────────────────────────────────────────────────────────────
+  title: {
+    default: "Cambridge School Mangalore | Top CBSE School – Nursery to Grade 10",
+    template: "%s | Cambridge School Mangalore",
+  },
   description:
-    "Cambridge School, Mangalore — a top-ranked CBSE school at Neermarga Road, Kudupu, Mangalore, founded in 2007 under St. Lawrence Education Trust. Offering academic excellence, sports, ICT & co-curricular activities. Admissions open 2025–26.",
+    "Cambridge School Mangalore is a top-ranked CBSE school in Adyar, Mangaluru, offering academic excellence from Nursery to Grade 10. Founded in 2007 under St. Lawrence Education Trust. Admissions open 2025–26.",
 
   keywords: [
+    // Brand
     "Cambridge School Mangalore",
+    "The Cambridge International School Mangalore",
+    "TCIS Mangalore",
+
+    // Location-intent
     "best CBSE school in Mangalore",
-    "top ranking school Mangalore",
+    "top school in Mangaluru",
+    "CBSE school Adyar Mangalore",
     "CBSE school Kudupu Mangalore",
-    "Cambridge School Karnataka",
+    "CBSE school Neermarga Road",
+    "school near Sahyadri College Mangalore",
+
+    // Admission-intent
+    "Cambridge School admissions 2025",
+    "CBSE school admissions Mangalore 2025-26",
+    "nursery admission Mangalore",
+    "grade 10 CBSE school Mangalore",
+
+    // Broad
+    "best school in Karnataka",
     "St Lawrence Education Trust school",
-    "CBSE school Neermarga Road Mangalore",
-    "best school in Mangalore 2025",
-    "Cambridge school admissions Mangalore",
-    "co-curricular activities school Mangalore",
-    "CBSE school Karnataka admissions 2025",
+    "co-curricular activities CBSE school",
+    "ICT school Mangalore",
     "international school Mangaluru",
   ],
 
-  authors: [{ name: "Cambridge School Mangalore" }],
+  // ── Authorship & URL ──────────────────────────────────────────────────────
+  authors: [{ name: "Cambridge School Mangalore", url: "https://cambridgeschoolmangalore.com" }],
+  creator: "Cambridge School Mangalore",
+  publisher: "St. Lawrence Education Trust",
   metadataBase: new URL("https://cambridgeschoolmangalore.com"),
   alternates: {
-    canonical: "/",
+    canonical: "https://cambridgeschoolmangalore.com",
   },
 
-  // ── Open Graph ──────────────────────────────────────────────────────────────
+  // ── Open Graph ────────────────────────────────────────────────────────────
   openGraph: {
-    title: "Cambridge School Mangalore",
+    title: "Cambridge School Mangalore | Top CBSE School – Nursery to Grade 10",
     description:
-      "Founded in 2007 by Collins & Flavia Albuquerque under St. Lawrence Education Trust. Academic excellence, world-class infrastructure & holistic growth at Kudupu, Mangalore. Admissions open 2025–26.",
+      "A premier CBSE school in Adyar, Mangaluru, founded in 2007 by Collins & Flavia Albuquerque under St. Lawrence Education Trust. Admissions open 2025–26.",
     url: "https://cambridgeschoolmangalore.com",
     siteName: "Cambridge School Mangalore",
     images: [
       {
-        url: "/images/og-banner.jpg", // ⚠️ Replace with a real 1200×630 JPG
+        url: "/images/ogImage/ogImage.png",
         width: 1200,
         height: 630,
-        alt: "Cambridge School Mangalore — Neermarga Road, Kudupu, Mangalore",
-        type: "/images/ogImage/ogImage.png",
+        alt: "Cambridge School Mangalore — Adyar, Mangaluru",
       },
     ],
     locale: "en_IN",
     type: "website",
   },
 
-  // ── Twitter / X Card ────────────────────────────────────────────────────────
+  // ── Twitter / X ───────────────────────────────────────────────────────────
   twitter: {
     card: "summary_large_image",
-    title: "Cambridge School Mangalore",
+    title: "Cambridge School Mangalore | Top CBSE School",
     description:
       "Top-ranked CBSE school in Mangalore with outstanding board results, sports, ICT & co-curricular activities. Admissions open 2025–26.",
-    images: ["/images/ogImage/ogImage.png"], // ⚠️ Use a real JPG/PNG, not SVG
+    images: ["/images/ogImage/ogImage.png"],
   },
 
-  // ── Robots ──────────────────────────────────────────────────────────────────
+  // ── Robots ────────────────────────────────────────────────────────────────
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
       "max-image-preview": "large",
       "max-snippet": -1,
+      "max-video-preview": -1,
     },
   },
 
-  // ── Verification ────────────────────────────────────────────────────────────
+  // ── Verification ─────────────────────────────────────────────────────────
   verification: {
-    google: "YOUR_GOOGLE_SEARCH_CONSOLE_TOKEN", // ← paste from Search Console
+    google: "YOUR_GOOGLE_SEARCH_CONSOLE_TOKEN", // ← Paste token from Search Console
   },
 
+  // ── Misc ──────────────────────────────────────────────────────────────────
   category: "education",
   applicationName: "Cambridge School Mangalore",
   referrer: "origin-when-cross-origin",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
 };
+
 import { ModalProvider } from "@/context/ModalContext";
 import GlobalModal from "@/components/sections/GlobalModal";
 import { Toaster } from "react-hot-toast";

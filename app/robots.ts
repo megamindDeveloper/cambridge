@@ -1,12 +1,34 @@
-import { MetadataRoute } from 'next';
+import { MetadataRoute } from "next";
+
+const BASE_URL = "https://cambridgeschoolmangalore.com";
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: '/private/',
-    },
-    sitemap: 'https://cambridgeschoolmangalore.com/sitemap.xml',
+    rules: [
+      {
+        // Allow all well-behaved crawlers full access
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/api/", "/_next/", "/private/"],
+      },
+      {
+        // Explicitly allow Google's image bot
+        userAgent: "Googlebot-Image",
+        allow: ["/images/", "/svgs/", "/icons/"],
+      },
+      {
+        // Block AI training scrapers that don't respect llm.txt
+        userAgent: [
+          "GPTBot",
+          "ChatGPT-User",
+          "Google-Extended",
+          "CCBot",
+          "anthropic-ai",
+        ],
+        disallow: "/",
+      },
+    ],
+    sitemap: `${BASE_URL}/sitemap.xml`,
+    host: BASE_URL,
   };
 }

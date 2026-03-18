@@ -4,20 +4,19 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-   <footer className="w-full bg-[#161616] pt-16 pb-8 px-4 font-sans">
+    <footer className="w-full bg-[#161616] pt-16 pb-8 px-4 font-sans">
       <div className="container mx-auto px-4">
         {/* Top Section: Logo & Contact Info */}
         {/* Added items-center for mobile, lg:items-start for desktop */}
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-12 lg:gap-8 text-center lg:text-left">
-          
           {/* Left: Logo & Location */}
           <div className="flex flex-col items-center lg:items-start">
             <div className="relative h-[80px] w-[300px] sm:w-[350px]">
-              <Image 
-                src="/svgs/footer.svg" 
-                alt="The Cambridge International School" 
-                fill 
-                className="object-contain cursor-pointer object-center lg:object-left" 
+              <Image
+                src="/svgs/footer.svg"
+                alt="The Cambridge International School"
+                fill
+                className="object-contain cursor-pointer object-center lg:object-left"
               />
             </div>
             <p className="text-[#D1D1D1] text-lg mt-4">Adyar, Mangalore</p>
@@ -26,69 +25,85 @@ export default function Footer() {
           {/* Right: Contact Information */}
           <div className="flex flex-col gap-5 lg:mr-12 items-center lg:items-start">
             {/* Phone */}
-            <div className="flex flex-col sm:flex-row items-center gap-4 text-[#D1D1D1] hover:text-white transition-colors cursor-default">
-              <svg width="24" height="24" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M13.844 14.0744C15.098 12.8204 15.098 10.7873 13.844 9.53342L9.303 4.99235C8.04903 3.73837 6.0159 3.73837 4.76193 4.99235C-0.253976 10.0082 -0.253976 18.1406 4.76193 23.1565L13.844 32.2386C18.8599 37.2545 26.9922 37.2545 32.0081 32.2386C33.2622 30.9846 33.2622 28.9515 32.0081 27.6976L27.4671 23.1565C26.2132 21.9025 24.18 21.9025 22.9261 23.1565L20.6556 25.427C19.4016 26.681 17.3685 26.681 16.1145 25.427L11.5735 20.886C10.3195 19.632 10.3195 17.5989 11.5735 16.3449L13.844 14.0744Z"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeMiterlimit="10"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M19.9453 1.00018C28.7975 1.00018 36.0003 8.20301 36.0003 17.0552"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeMiterlimit="10"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M19.9453 7.42218C25.2655 7.42218 29.5783 11.735 29.5783 17.0552"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeMiterlimit="10"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span className="text-[17px] tracking-wide">+91 9686357711</span>
+            <div className="flex flex-col sm:flex-row items-center gap-4 text-[#D1D1D1] hover:text-white transition-colors cursor-pointer">
+              <a href="tel:+919686357711" target="_blank" rel="noopener noreferrer" className="flex flex-col sm:flex-row items-center gap-4">
+                <svg width="24" height="24" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M13.844 14.0744C15.098 12.8204 15.098 10.7873 13.844 9.53342L9.303 4.99235C8.04903 3.73837 6.0159 3.73837 4.76193 4.99235C-0.253976 10.0082 -0.253976 18.1406 4.76193 23.1565L13.844 32.2386C18.8599 37.2545 26.9922 37.2545 32.0081 32.2386C33.2622 30.9846 33.2622 28.9515 32.0081 27.6976L27.4671 23.1565C26.2132 21.9025 24.18 21.9025 22.9261 23.1565L20.6556 25.427C19.4016 26.681 17.3685 26.681 16.1145 25.427L11.5735 20.886C10.3195 19.632 10.3195 17.5989 11.5735 16.3449L13.844 14.0744Z"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeMiterlimit="10"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M19.9453 1.00018C28.7975 1.00018 36.0003 8.20301 36.0003 17.0552"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeMiterlimit="10"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M19.9453 7.42218C25.2655 7.42218 29.5783 11.735 29.5783 17.0552"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeMiterlimit="10"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <span className="text-[17px] tracking-wide">+91 9686357711</span>
+              </a>
             </div>
 
             {/* Email */}
-            <div className="flex flex-col sm:flex-row items-center gap-4 text-[#D1D1D1] hover:text-white transition-colors cursor-default">
-              <svg width="24" height="24" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M3.80758 3.91157L14.9084 11.8814C15.5493 12.3415 16.3982 12.3415 17.0392 11.8814L28.14 3.91157M4.74344 24.2925H27.2041C29.2715 24.2925 30.9475 22.5545 30.9475 20.4104V4.88209C30.9475 2.73807 29.2715 1 27.2041 1H4.74344C2.676 1 1 2.73807 1 4.88209V20.4104C1 22.5545 2.676 24.2925 4.74344 24.2925Z"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span className="text-[17px] tracking-wide">tcisadyarmangalore@gmail.com</span>
+            <div className="flex flex-col sm:flex-row items-center gap-4 text-[#D1D1D1] hover:text-white transition-colors cursor-pointer">
+              <a
+                href="mailto:tcisadyarmangalore@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col sm:flex-row items-center gap-4"
+              >
+                <svg width="24" height="24" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M3.80758 3.91157L14.9084 11.8814C15.5493 12.3415 16.3982 12.3415 17.0392 11.8814L28.14 3.91157M4.74344 24.2925H27.2041C29.2715 24.2925 30.9475 22.5545 30.9475 20.4104V4.88209C30.9475 2.73807 29.2715 1 27.2041 1H4.74344C2.676 1 1 2.73807 1 4.88209V20.4104C1 22.5545 2.676 24.2925 4.74344 24.2925Z"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <span className="text-[17px] tracking-wide">tcisadyarmangalore@gmail.com</span>
+              </a>
             </div>
 
             {/* Location */}
-            <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4 text-[#D1D1D1] hover:text-white transition-colors cursor-default">
-              <svg width="28" height="28" viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
-                <path
-                  d="M14.0026 34.2288C14.0026 34.2288 27.0052 22.671 27.0052 14.0026C27.0052 6.82145 21.1837 1 14.0026 1C6.82145 1 1 6.82145 1 14.0026C1 22.671 14.0026 34.2288 14.0026 34.2288Z"
-                  stroke="white"
-                  strokeWidth="2"
-                />
-                <path
-                  d="M18.1567 13.4611C18.1567 15.755 16.2971 17.6147 14.0031 17.6147C11.7091 17.6147 9.84951 15.755 9.84951 13.4611C9.84951 11.1671 11.7091 9.30747 14.0031 9.30747C16.2971 9.30747 18.1567 11.1671 18.1567 13.4611Z"
-                  stroke="white"
-                  strokeWidth="2"
-                />
-              </svg>
-              <span className="text-[17px] leading-relaxed tracking-wide">
-                Near Sahyadri College Of Engineering,
-                <br />
-                Adyar, Mangaluru, Karnataka 575007
-              </span>
+            <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4 text-[#D1D1D1] hover:text-white transition-colors cursor-pointer">
+              <a
+                href="https://maps.app.goo.gl/f5XLEMkFz59bGvBf7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col sm:flex-row items-center lg:items-start gap-4"
+              >
+                <svg width="28" height="28" viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
+                  <path
+                    d="M14.0026 34.2288C14.0026 34.2288 27.0052 22.671 27.0052 14.0026C27.0052 6.82145 21.1837 1 14.0026 1C6.82145 1 1 6.82145 1 14.0026C1 22.671 14.0026 34.2288 14.0026 34.2288Z"
+                    stroke="white"
+                    strokeWidth="2"
+                  />
+                  <path
+                    d="M18.1567 13.4611C18.1567 15.755 16.2971 17.6147 14.0031 17.6147C11.7091 17.6147 9.84951 15.755 9.84951 13.4611C9.84951 11.1671 11.7091 9.30747 14.0031 9.30747C16.2971 9.30747 18.1567 11.1671 18.1567 13.4611Z"
+                    stroke="white"
+                    strokeWidth="2"
+                  />
+                </svg>
+                <span className="text-[17px] leading-relaxed tracking-wide">
+                  Near Sahyadri College Of Engineering,
+                  <br />
+                  Adyar, Mangaluru, Karnataka 575007
+                </span>
+              </a>
             </div>
           </div>
         </div>
@@ -235,10 +250,12 @@ export default function Footer() {
               </Link>
             </div>
           </div>
-<div className="w-full border-t md:hidden border-[#333333]"></div>
+          <div className="w-full border-t md:hidden border-[#333333]"></div>
           {/* Copyright Text */}
           <div className="text-center md:text-right">
-            <p className="text-[#999999] text-[13px] tracking-wide">© The Cambridge International School, {new Date().getFullYear()} | All Rights Reserved</p>
+            <p className="text-[#999999] text-[13px] tracking-wide">
+              © The Cambridge International School, {new Date().getFullYear()} | All Rights Reserved
+            </p>
           </div>
         </div>
       </div>
