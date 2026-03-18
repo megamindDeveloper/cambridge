@@ -65,7 +65,7 @@ export default function CampusFacilities() {
 
       <div className="container relative z-10 mx-auto px-4">
         {/* Header Row */}
-        <div className="flex flex-col md:flex-row md:items-start justify-between mb-12 lg:mb-16 gap-4 md:gap-8">
+        <div className="flex flex-col md:flex-row md:items-center justify-between mb-12 lg:mb-16 gap-4 md:gap-8">
           <h2 className="text-3xl md:text-4xl font-bold text-primary max-w-xl leading-tight">Campus and Facilities</h2>
           <p className="text-primary text-base max-w-sm flex-1 leading-relaxed md:pt-2">
             Located in Adyar on the banks of the Netravathi River, the campus provides a peaceful environment where children can focus and grow.
