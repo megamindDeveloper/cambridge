@@ -69,11 +69,11 @@ export default function Hero() {
 
       {/* --- NAVBAR SECTION --- */}
       <nav className="w-full relative z-50">
-        <div className="container mx-auto px-4 py-6 md:py-10 flex justify-between items-center">
+        <div className="container mx-auto px-4 pt-6 pb-3 md:py-10 flex flex-col md:flex-row md:gap-0 gap-7 justify-between items-start md:items-center">
           
           {/* FIX: Single Image component. 
             We set the max width/height for Next.js intrinsic sizing, 
-            then use Tailwind (w-[180px] md:w-[220px] h-auto) to scale it responsibly.
+            then use Tailwind (w-[180px] md:w-[220px] h-auto) to scale it responsively.
           */}
          
           <Image 
@@ -86,11 +86,11 @@ export default function Hero() {
           />
         
           <div>
-            <div className="flex flex-col    gap-4"> 
+            <div className="flex flex-col  md:gap-4 gap-2"> 
             <Button onClick={openEnquiryModal}>
               Apply Now
             </Button>
-              <h2 className="text-xl md:text-xs font-bold text-primary md:mb-6 leading-tight">CBSE Affiliated · Code: 830736</h2></div>
+              <h2 className="text-[10px] md:text-xs font-bold text-primary md:mb-6 leading-tight">CBSE Affiliated · Code: 830736</h2></div>
           </div>
 
         </div>
