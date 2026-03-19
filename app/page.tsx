@@ -16,6 +16,7 @@ import MapSection from "@/components/sections/MapSection";
 import Hero from "@/components/sections/Hero";
 import AdmissionSteps from "@/components/sections/AdmissionSteps";
 import AdmissionsForm from "@/components/sections/AdmissionsForm";
+import WhatsappChatWidget from "@/components/ui/WhatsappChatWidget";
 const MAP_DATA = [
   {
     key: "kalladka",
@@ -135,6 +136,7 @@ export default function LandingPage() {
         <AdmissionsForm />
       </Suspense>
       <Footer />
+      <WhatsappChatWidget />
     </div>
   );
 }

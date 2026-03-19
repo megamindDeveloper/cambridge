@@ -70,6 +70,7 @@ export default function MapSection({
 
               return (
                 <a
+                  aria-label="location"
                   key={item.key}
                   href={`https://www.google.com/maps/search/?api=1&query=$${item.viewport.center.lat},${item.viewport.center.lng}`}
                   target="_blank"
@@ -99,6 +100,7 @@ export default function MapSection({
 
             return (
               <a
+                aria-label="location"
                 key={item.key}
                 href={`https://www.google.com/maps/search/?api=1&query=$${item.viewport.center.lat},${item.viewport.center.lng}`}
                 target="_blank"

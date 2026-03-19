@@ -38,7 +38,7 @@ export default function Hero() {
   return (
     <div className=" bg-white relative overflow-hidden font-sans">
       {/* Background Red Curve SVG - Desktop */}
-      <div className="absolute hidden md:block -top-40 md:-top-96 -right-1 z-0 pointer-events-none w-[200px] md:w-[500px] lg:w-[600px] translate-x-[20%] md:translate-x-[30%] -translate-y-10">
+      <div className="absolute hidden md:block -top-40 md:-top-90 right-0 z-0 pointer-events-none w-[200px] md:w-[500px] lg:w-[600px] translate-x-[20%] md:translate-x-[30%] -translate-y-10">
         <svg viewBox="0 0 666 1129" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
           <path d="M126.853 2.05966C-258.442 643.507 358.43 827.747 662.219 1125.5" stroke="url(#paint0_linear_68_2)" strokeWidth="8" />
           <defs>
@@ -75,6 +75,7 @@ export default function Hero() {
             We set the max width/height for Next.js intrinsic sizing, 
             then use Tailwind (w-[180px] md:w-[220px] h-auto) to scale it responsibly.
           */}
+         
           <Image 
             src="/svgs/navLogo.svg" 
             width={220} 
@@ -83,11 +84,13 @@ export default function Hero() {
             className="w-[180px] md:w-[220px] cursor-pointer h-auto"
             priority 
           />
-
+        
           <div>
+            <div className="flex flex-col    gap-4"> 
             <Button onClick={openEnquiryModal}>
               Apply Now
             </Button>
+              <h2 className="text-xl md:text-xs font-bold text-primary md:mb-6 leading-tight">CBSE Affiliated · Code: 830736</h2></div>
           </div>
 
         </div>

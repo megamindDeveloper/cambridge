@@ -140,6 +140,7 @@ export default function EnquiryModal({ isOpen = true, onClose }: EnquiryModalPro
 
           <div className="flex items-center border-b border-primary/50 py-2 transition-colors focus-within:border-gray-800">
             <select
+            aria-label="country-code"
               value={countryCode}
               onChange={(e) => setCountryCode(e.target.value)}
               className="bg-transparent text-gray-500 font-medium text-base md:text-xl focus:outline-none cursor-pointer appearance-none"

@@ -26,7 +26,7 @@ export default function Footer() {
           <div className="flex flex-col gap-5 lg:mr-12 items-center lg:items-start">
             {/* Phone */}
             <div className="flex flex-col sm:flex-row items-center gap-4 text-[#D1D1D1] hover:text-white transition-colors cursor-pointer">
-              <a href="tel:+919686357711" target="_blank" rel="noopener noreferrer" className="flex flex-col sm:flex-row items-center gap-4">
+              <a aria-label="phone number" href="tel:+919686357711" target="_blank" rel="noopener noreferrer" className="flex flex-col sm:flex-row items-center gap-4">
                 <svg width="24" height="24" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M13.844 14.0744C15.098 12.8204 15.098 10.7873 13.844 9.53342L9.303 4.99235C8.04903 3.73837 6.0159 3.73837 4.76193 4.99235C-0.253976 10.0082 -0.253976 18.1406 4.76193 23.1565L13.844 32.2386C18.8599 37.2545 26.9922 37.2545 32.0081 32.2386C33.2622 30.9846 33.2622 28.9515 32.0081 27.6976L27.4671 23.1565C26.2132 21.9025 24.18 21.9025 22.9261 23.1565L20.6556 25.427C19.4016 26.681 17.3685 26.681 16.1145 25.427L11.5735 20.886C10.3195 19.632 10.3195 17.5989 11.5735 16.3449L13.844 14.0744Z"
@@ -60,6 +60,7 @@ export default function Footer() {
             {/* Email */}
             <div className="flex flex-col sm:flex-row items-center gap-4 text-[#D1D1D1] hover:text-white transition-colors cursor-pointer">
               <a
+                aria-label="email"
                 href="mailto:tcisadyarmangalore@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -81,6 +82,7 @@ export default function Footer() {
             {/* Location */}
             <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4 text-[#D1D1D1] hover:text-white transition-colors cursor-pointer">
               <a
+                aria-label="location"
                 href="https://maps.app.goo.gl/f5XLEMkFz59bGvBf7"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -145,7 +147,7 @@ export default function Footer() {
               </Link> */}
 
               {/* Instagram */}
-              <Link href="https://www.instagram.com/tcismangalore" target="_blank" className="">
+              <Link aria-label="instagram" href="https://www.instagram.com/tcismangalore" target="_blank" className="">
                 <svg width="38" height="38" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g opacity="0.88">
                     <path
@@ -193,7 +195,7 @@ export default function Footer() {
               </Link>
 
               {/* Meta / Infinity */}
-              <Link href="https://www.facebook.com/tcisgroupofschools" target="_blank" className="">
+              <Link aria-label="facebook" href="https://www.facebook.com/tcisgroupofschools" target="_blank" className="">
                 <svg width="38" height="38" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g opacity="0.88">
                     <path
@@ -213,7 +215,7 @@ export default function Footer() {
               </Link>
 
               {/* YouTube */}
-              <Link href="https://www.youtube.com/@tcisadyar6845" target="_blank" className="">
+              <Link aria-label="youtube" href="https://www.youtube.com/@tcisadyar6845" target="_blank" className="">
                 <svg width="38" height="38" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g opacity="0.88">
                     <path

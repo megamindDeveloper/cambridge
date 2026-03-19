@@ -317,6 +317,7 @@ export default function AdmissionsForm() {
 
               <div className="flex items-center border-b border-primary/50 py-2 transition-colors focus-within:border-gray-800">
                 <select
+                aria-label="country-code"
                   value={countryCode}
                   onChange={(e) => setCountryCode(e.target.value)}
                   className="bg-transparent text-gray-500 font-medium text-base md:text-xl focus:outline-none cursor-pointer appearance-none"
@@ -401,6 +402,7 @@ export default function AdmissionsForm() {
           {/* Right Column: Map Section (Appears first on mobile due to flex-col-reverse) */}
           <div className="w-full h-[300px] md:h-[450px] lg:h-auto rounded-xl overflow-hidden shadow-sm border border-gray-100 bg-gray-50 relative">
             <iframe
+              title="Google Maps location"
               src={mapUrl}
               width="100%"
               height="100%"
