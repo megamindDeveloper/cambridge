@@ -100,7 +100,7 @@ export default function Hero() {
       <section className="relative w-full ">
         <div className="container mx-auto pt-4 md:pt-5 px-4 relative z-10 ">
           {/* Adjusted padding-bottom: pb-12 for mobile, pb-32 for desktop */}
-          <div className="border-b-[3px] pb-12 md:pb-32 border-[#DBDBDB]">
+          <div className="border-b-[3px] pb-7 md:pb-32 border-[#DBDBDB]">
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-primary md:mb-6 leading-tight">
               A School Where Children
               <br className="hidden md:block" />
@@ -153,7 +153,8 @@ export default function Hero() {
                         <Image
                           width={1000}
                           height={1000}
-                          priority
+                          priority={index === 0}
+                          sizes="(max-width: 768px) 100vw, 50vw"
                           src={campus.image}
                           alt={`Campus View ${index + 1}`}
                           className="w-full h-full object-cover"

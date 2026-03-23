@@ -90,7 +90,7 @@ export default function EnquiryModal({ isOpen = true, onClose }: EnquiryModalPro
       data-lenis-prevent
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-100 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
+      className="fixed inset-0 z-[9999999999] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
       onClick={onClose}
     >
       <div

@@ -1,22 +1,16 @@
 import React, { Suspense } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import Image from "next/image";
-import { Button } from "@/components/ui/Button";
+import dynamic from "next/dynamic";
 import LearningJourney from "@/components/sections/LearningJourney";
-import WhyChooseUs from "@/components/sections/WhyChooseUs";
-import WhatMakesUsDifferent from "@/components/sections/WhatMakesUsDifferent";
-import CampusFacilities from "@/components/sections/CampusFacilities";
-import Footer from "@/components/sections/Footer";
-import MapSection from "@/components/sections/MapSection";
 import Hero from "@/components/sections/Hero";
-import AdmissionSteps from "@/components/sections/AdmissionSteps";
-import AdmissionsForm from "@/components/sections/AdmissionsForm";
-import WhatsappChatWidget from "@/components/ui/WhatsappChatWidget";
+
+const WhyChooseUs = dynamic(() => import("@/components/sections/WhyChooseUs"));
+const WhatMakesUsDifferent = dynamic(() => import("@/components/sections/WhatMakesUsDifferent"));
+const CampusFacilities = dynamic(() => import("@/components/sections/CampusFacilities"));
+const Footer = dynamic(() => import("@/components/sections/Footer"));
+const MapSection = dynamic(() => import("@/components/sections/MapSection"));
+const AdmissionSteps = dynamic(() => import("@/components/sections/AdmissionSteps"));
+const AdmissionsForm = dynamic(() => import("@/components/sections/AdmissionsForm"));
+const WhatsappChatWidget = dynamic(() => import("@/components/ui/WhatsappChatWidget"));
 const MAP_DATA = [
   {
     key: "kalladka",

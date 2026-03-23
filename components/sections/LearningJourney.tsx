@@ -46,6 +46,7 @@ export default function LearningJourney() {
               <Image
                 width={1000}
                 height={1000}
+                sizes="(max-width: 768px) 100vw, 50vw"
                 src={tabsData[activeIndex].image}
                 alt={tabsData[activeIndex].label}
                 className="w-full h-full object-cover transition-opacity duration-500"

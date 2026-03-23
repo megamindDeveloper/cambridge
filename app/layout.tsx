@@ -131,7 +131,7 @@ export default function RootLayout({
           {children}
         </ModalProvider>
         <Toaster position="top-center" />
-        <Script src="/smoothScroll/smoothScroll.js" strategy="afterInteractive" />
+        <Script src="/smoothScroll/smoothScroll.js" />
       </body>
     </html>
   );
