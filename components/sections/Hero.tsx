@@ -90,7 +90,7 @@ export default function Hero() {
             <Button onClick={openEnquiryModal}>
               Apply Now
             </Button>
-              <h2 className="text-[8px] text-center md:text-xs font-bold text-primary md:mb-6 leading-tight">CBSE Affiliated · Code: 830736</h2></div>
+              <h2 className="text-[8px] text-center md:text-xs font-bold text-primary  leading-tight">CBSE Affiliated · Code: 830736</h2></div>
           </div>
 
         </div>
