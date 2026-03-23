@@ -99,6 +99,7 @@ export default function EnquiryModal({ isOpen = true, onClose }: EnquiryModalPro
       >
         {/* Close Button */}
         <button
+
           onClick={onClose}
           className="absolute right-6 cursor-pointer top-6 text-gray-400 hover:text-primary transition-colors"
           aria-label="Close modal"
@@ -211,7 +212,7 @@ export default function EnquiryModal({ isOpen = true, onClose }: EnquiryModalPro
           </div>
 
           <div className="mt-4 flex justify-center">
-            <Button type="submit" className="" disabled={submitting}>
+            <Button aria-label="submit-enquiry" type="submit" className="" disabled={submitting}>
               {submitting ? "Submitting..." : "Submit Enquiry"}
             </Button>
           </div>

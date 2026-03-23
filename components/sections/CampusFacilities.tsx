@@ -53,15 +53,22 @@ const DesktopFacilityCard = ({ text, idx }: { text: string; idx: number }) => (
 export default function CampusFacilities() {
   return (
     <section className="relative w-full py-10 md:py-24 ">
-      <svg className="absolute bottom-0 md:hidden left-0 w-full lg:w-[1712px] xl:w-[2200px] z-0 pointer-events-none " width="512" height="311" viewBox="0 0 512 311" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.62305 1.16821C105.017 144.848 301.364 243.796 510.678 308.967" stroke="url(#paint0_linear_128_39)" stroke-width="4"/>
-<defs>
-<linearGradient id="paint0_linear_128_39" x1="236.185" y1="-1904.2" x2="706.607" y2="520.62" gradientUnits="userSpaceOnUse">
-<stop stop-color="#E31C22"/>
-<stop offset="1" stop-color="#FB7824"/>
-</linearGradient>
-</defs>
-</svg>
+      <svg
+        className="absolute bottom-0 md:hidden left-0 w-full lg:w-[1712px] xl:w-[2200px] z-0 pointer-events-none "
+        width="512"
+        height="311"
+        viewBox="0 0 512 311"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M1.62305 1.16821C105.017 144.848 301.364 243.796 510.678 308.967" stroke="url(#paint0_linear_128_39)" strokeWidth="4" />
+        <defs>
+          <linearGradient id="paint0_linear_128_39" x1="236.185" y1="-1904.2" x2="706.607" y2="520.62" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#E31C22" />
+            <stop offset="1" stopColor="#FB7824" />
+          </linearGradient>
+        </defs>
+      </svg>
 
       <div className="container relative z-10 mx-auto px-4">
         {/* Header Row */}

@@ -392,7 +392,7 @@ export default function AdmissionsForm() {
               </div>
 
               <div className="mt-2 flex justify-center md:justify-start">
-                <Button type="submit" disabled={submitting}>
+                <Button aria-label="submit" type="submit" disabled={submitting}>
                   {submitting ? "Submitting..." : "Submit"}
                 </Button>
               </div>

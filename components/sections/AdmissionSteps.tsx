@@ -119,7 +119,7 @@ export default function AdmissionSteps() {
         </div>
 
         {/* CTA Button */}
-        <Button className="mt- md:mt-14" onClick={openEnquiryModal}>
+        <Button aria-label="book-a-campus-visit" className="mt- md:mt-14" onClick={openEnquiryModal}>
           Book a Campus Visit
         </Button>
 

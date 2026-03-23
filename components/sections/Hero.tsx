@@ -87,7 +87,7 @@ export default function Hero() {
         
           <div>
             <div className="flex flex-col  md:gap-4 gap-2"> 
-            <Button onClick={openEnquiryModal}>
+            <Button aria-label="apply-now" onClick={openEnquiryModal}>
               Apply Now
             </Button>
               <h2 className="text-[8px] text-center md:text-xs font-bold text-primary  leading-tight">CBSE Affiliated · Code: 830736</h2></div>
@@ -119,7 +119,7 @@ export default function Hero() {
                 </h2>
 
                 <div>
-                  <Button variant="secondary" className="w-full md:w-auto" onClick={openEnquiryModal}>
+                  <Button aria-label="book-a-campus-visit" variant="secondary" className="w-full md:w-auto" onClick={openEnquiryModal}>
                     Book a Campus Visit
                   </Button>
                 </div>

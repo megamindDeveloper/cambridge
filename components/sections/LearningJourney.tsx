@@ -23,13 +23,13 @@ export default function LearningJourney() {
   return (
     <section className="relative w-full overflow-hidden bg-white">
       {/* Background SVG Line */}
-       <div className="absolute hidden   inset-0 w-[100vw] z-0 pointer-events-none md:flex items-end justify-center">
+      <div className="absolute hidden   inset-0 w-[100vw] z-0 pointer-events-none md:flex items-end justify-center">
         <svg width="2052" height="424" viewBox="0 0 2052 424" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2048.01 167.629C1513.53 803.679 531.312 37.7412 0.253983 3.99202" stroke="url(#paint0_linear_86_2)" stroke-width="8" />
+          <path d="M2048.01 167.629C1513.53 803.679 531.312 37.7412 0.253983 3.99202" stroke="url(#paint0_linear_86_2)" strokeWidth="8" />
           <defs>
             <linearGradient id="paint0_linear_86_2" x1="1620.25" y1="-1802.6" x2="18.5241" y2="2161.81" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#E31C22" />
-              <stop offset="1" stop-color="#FB7824" />
+              <stop stopColor="#E31C22" />
+              <stop offset="1" stopColor="#FB7824" />
             </linearGradient>
           </defs>
         </svg>
@@ -58,6 +58,7 @@ export default function LearningJourney() {
                 const isLast = index === tabsData.length - 1;
                 return (
                   <button
+                  aria-label={tab.label}
                     key={tab.id}
                     onClick={() => setActiveIndex(index)}
                     className={`text-left py-4 md:py-5 text-lg md:text-xl cursor-pointer transition-all duration-300 focus:outline-none ${
