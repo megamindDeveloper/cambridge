@@ -135,6 +135,18 @@ export default function WhatMakesUsDifferent() {
                       >
                         {feature.title}
                       </h3>
+                      {/* Chevron Icon - Mobile Only, inline with title */}
+                      <div className="flex-shrink-0 ml-auto sm:hidden">
+                        {isActive ? (
+                          <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.75 5.33002L5.75081 0.750017L10.75 5.33002" stroke="#2F2F2F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        ) : (
+                          <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.75 0.75L5.75081 5.33L10.75 0.75" stroke="#2F2F2F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        )}
+                      </div>
                     </div>
 
                     {/* Framer Motion Expanded Text Content */}
@@ -154,6 +166,7 @@ export default function WhatMakesUsDifferent() {
                       )}
                     </AnimatePresence>
                   </div>
+
 
                   {/* Thumbnail Image - Fixed jumping logic */}
                   <AnimatePresence initial={false}>

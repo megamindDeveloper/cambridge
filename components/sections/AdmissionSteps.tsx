@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useAnimation, Variants } from "framer-motion";
 import { Button } from "../ui/Button";
 import { useModal } from "@/context/ModalContext";
@@ -73,6 +73,16 @@ export default function AdmissionSteps() {
   const sectionRef = useRef<HTMLElement>(null);
   const { openEnquiryModal } = useModal();
 
+  // State to track if the user is on mobile
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize(); // Initialize on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   // Core timings
   const stepDrawTime = 1.0;
   const stepFillTime = 0.4;
@@ -85,7 +95,11 @@ export default function AdmissionSteps() {
     visible: (index: number) => ({ 
       opacity: 1, 
       y: 0, 
-      transition: { duration: 0.4, ease: "easeOut", delay: index * cycleTime } 
+      transition: { 
+        duration: isMobile ? 0 : 0.4, 
+        ease: "easeOut", 
+        delay: isMobile ? 0 : index * cycleTime 
+      } 
     }),
   };
 
@@ -97,27 +111,39 @@ export default function AdmissionSteps() {
       fill: color,
       stroke: color,
       transition: { 
-        pathLength: { duration: stepDrawTime, ease: "easeInOut", delay: index * cycleTime },
-        fill: { duration: stepFillTime, delay: (index * cycleTime) + stepDrawTime } 
+        pathLength: { 
+          duration: isMobile ? 0 : stepDrawTime, 
+          ease: "easeInOut", 
+          delay: isMobile ? 0 : index * cycleTime 
+        },
+        fill: { 
+          duration: isMobile ? 0 : stepFillTime, 
+          delay: isMobile ? 0 : (index * cycleTime) + stepDrawTime 
+        } 
       },
     }),
   };
 
-  // Clip-path mask to draw the dashed lines from left to right completely from nothing
+  // Clip-path mask to draw the dashed lines
   const dashLineVariants: Variants = {
-    hidden: { clipPath: "inset(0 100% 0 0)" }, // 100% hidden initially
+    hidden: { clipPath: "inset(0 100% 0 0)" },
     visible: (index: number) => ({
-      clipPath: "inset(0 0% 0 0)", // fully revealed
+      clipPath: "inset(0 0% 0 0)",
       transition: { 
-        duration: dashDrawTime, 
+        duration: isMobile ? 0 : dashDrawTime, 
         ease: "linear", 
-        // Trigger drawing exactly AFTER this current step has finished drawing & filling
-        delay: (index * cycleTime) + stepDrawTime + stepFillTime 
+        delay: isMobile ? 0 : (index * cycleTime) + stepDrawTime + stepFillTime 
       }
     }),
   };
 
   useEffect(() => {
+    // If it's mobile, trigger everything instantly instead of waiting for scroll
+    if (isMobile) {
+      controls.start("visible");
+      return;
+    }
+
     const handleScroll = () => {
       if (sectionRef.current) {
         const rect = sectionRef.current.getBoundingClientRect();
@@ -127,13 +153,14 @@ export default function AdmissionSteps() {
         }
       }
     };
+    
     window.addEventListener("scroll", handleScroll);
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [controls]);
+  }, [controls, isMobile]);
 
   return (
-    <section ref={sectionRef} className="w-full bg-white md:pb-14 pt-3 md:pt-16 overflow-hidden">
+    <section ref={sectionRef} className="w-full bg-white md:pb-14 mt-5 md:pt-16 overflow-hidden">
       <div className="w-full container mx-auto px-4 ">
         <div className="border-t-[3px] md:border-t-0 pt-10 md:pt-5 md:border-b-[3px] pb-7 md:pb-24 border-[#DBDBDB] flex flex-col items-center">
         {/* Heading Section */}
@@ -141,7 +168,7 @@ export default function AdmissionSteps() {
           <motion.h2 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: isMobile ? 0 : 0.5 }}
             className="text-3xl md:text-4xl font-bold text-primary leading-tight mb-3 tracking-tight"
           >
             Admit your Child in just <br className="md:hidden" />4 Steps
@@ -149,7 +176,7 @@ export default function AdmissionSteps() {
           <motion.p 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: isMobile ? 0 : 0.5, delay: isMobile ? 0 : 0.2 }}
             className="text-base md:text-xl text-primary/70 font-bold"
           >
             Visit the campus and explore the environment before making a decision.

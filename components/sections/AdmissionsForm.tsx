@@ -223,10 +223,6 @@ export default function AdmissionsForm() {
   const [childAge, setChildAge] = useState("");
   const [grade, setGrade] = useState("");
   const [location, setLocation] = useState("");
-  const [visitDate, setVisitDate] = useState("");
-  
-  // ADDED: State to toggle input type cleanly
-  const [dateInputType, setDateInputType] = useState("text");
 
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -255,7 +251,6 @@ export default function AdmissionsForm() {
           childAge,
           grade,
           location,
-          visitDate,
           premise: "campbridge",
           utm_source,
           utm_medium,
@@ -273,7 +268,6 @@ export default function AdmissionsForm() {
       setChildAge("");
       setGrade("");
       setLocation("");
-      setVisitDate("");
     } catch (err) {
       console.error("Webhook submission failed:", err);
       toast.error("Something went wrong. Please try again later.");
@@ -297,7 +291,10 @@ export default function AdmissionsForm() {
         <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
           {/* Left Column: Form Section */}
           <div className="flex flex-col w-full py-3 max-w-lg mx-auto lg:mx-0">
-            <h2 className="text-3xl md:text-[34px] font-bold text-[#1A1A1A] mb-6 leading-snug">
+            <h2 className="text-3xl md:hidden md:text-[34px] text-balance font-bold text-[#1A1A1A] mb-6 leading-snug">
+              Admissions Open {new Date().getFullYear()}-{(new Date().getFullYear() + 1).toString().slice(-2)} for Nursery to Grade 10
+            </h2>
+            <h2 className="text-3xl hidden md:block md:text-[34px] font-bold text-[#1A1A1A] mb-6 leading-snug">
               Admissions Open {new Date().getFullYear()}-{(new Date().getFullYear() + 1).toString().slice(-2)}
               <br />
               for Nursery to Grade 10
@@ -317,7 +314,7 @@ export default function AdmissionsForm() {
 
               <div className="flex items-center border-b border-primary/50 py-2 transition-colors focus-within:border-gray-800">
                 <select
-                aria-label="country-code"
+                  aria-label="country-code"
                   value={countryCode}
                   onChange={(e) => setCountryCode(e.target.value)}
                   className="bg-transparent text-gray-500 font-medium text-base md:text-xl focus:outline-none cursor-pointer appearance-none"
@@ -352,14 +349,29 @@ export default function AdmissionsForm() {
                   />
                 </div>
                 <div>
-                  <input
-                    type="text"
-                    placeholder="Grade"
+                  <select
                     value={grade}
                     onChange={(e) => setGrade(e.target.value)}
-                    className="w-full border-b border-primary/50 py-2 bg-transparent text-primary placeholder-primary/90 text-base md:text-xl focus:outline-none focus:border-gray-800 transition-colors"
+                    className="w-full border-b border-primary/50 py-2 bg-transparent text-primary placeholder-primary/90 text-base md:text-xl focus:outline-none focus:border-gray-800 transition-colors cursor-pointer"
                     required
-                  />
+                  >
+                    <option value="" disabled hidden>
+                      Select Grade
+                    </option>
+                    <option value="Nursery">Nursery</option>
+                    <option value="LKG">LKG</option>
+                    <option value="UKG">UKG</option>
+                    <option value="Grade 1">Grade 1</option>
+                    <option value="Grade 2">Grade 2</option>
+                    <option value="Grade 3">Grade 3</option>
+                    <option value="Grade 4">Grade 4</option>
+                    <option value="Grade 5">Grade 5</option>
+                    <option value="Grade 6">Grade 6</option>
+                    <option value="Grade 7">Grade 7</option>
+                    <option value="Grade 8">Grade 8</option>
+                    <option value="Grade 9">Grade 9</option>
+                    <option value="Grade 10">Grade 10</option>
+                  </select>
                 </div>
               </div>
 
@@ -371,23 +383,6 @@ export default function AdmissionsForm() {
                   onChange={(e) => setLocation(e.target.value)}
                   className="w-full border-b border-primary/50 py-2 bg-transparent text-primary placeholder-primary/90 text-base md:text-xl focus:outline-none focus:border-gray-800 transition-colors"
                   required
-                />
-              </div>
-
-              {/* UPDATED DATE INPUT SECTION */}
-              <div className="relative w-full">
-                <input
-                  type={dateInputType}
-                  placeholder="Preferred Visit Date"
-                  value={
-                    dateInputType === "text" && visitDate
-                      ? visitDate.split("-").reverse().join("-") 
-                      : visitDate
-                  }
-                  onChange={(e) => setVisitDate(e.target.value)}
-                  onFocus={() => setDateInputType("date")}
-                  onBlur={() => setDateInputType("text")}
-                  className="w-full border-b border-primary/50 py-2 bg-transparent text-primary placeholder-primary/90 text-base md:text-xl focus:outline-none focus:border-gray-800 transition-colors"
                 />
               </div>
 

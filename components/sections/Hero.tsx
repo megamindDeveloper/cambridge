@@ -65,7 +65,7 @@ export default function Hero() {
 
       {/* --- NAVBAR SECTION --- */}
       <nav className="w-full relative z-50">
-        <div className="container mx-auto px-4 pt-6 pb-3 md:py-10 flex flex-row md:flex-row md:gap-0 gap-7 justify-between items-start md:items-center">
+        <div className="container mx-auto px-4 py-8  border-b-[3px] md:border-b-0 mb-4 md:mb-0 border-[#DBDBDB] md:py-10 flex flex-row md:flex-row md:gap-0 gap-7 justify-between items-start md:items-center">
           {/* FIX: Single Image component. 
             We set the max width/height for Next.js intrinsic sizing, 
             then use Tailwind (w-[180px] md:w-[220px] h-auto) to scale it responsively.
@@ -76,7 +76,7 @@ export default function Hero() {
           <div>
             <div className="flex flex-col  md:gap-4 gap-2">
             
-              <h2 className="text-xl md:text-xl font-bold text-primary leading-tigh"> CBSE Affiliated <br />
+              <h2 className="text-base md:text-xl font-bold text-primary leading-tigh"> CBSE Affiliated <br />
   Code: 830736</h2>
             </div>
           </div>
@@ -161,7 +161,7 @@ export default function Hero() {
                 </div>
 
                 {/* Playful Green Face Graphic - Adjusted positioning so it doesn't vanish on mobile */}
-                <div className="absolute -top-6 -right-6 md:top-auto md:right-auto md:-bottom-10 md:-left-20 z-20 w-24 h-24 md:w-36 md:h-36 drop-shadow-md">
+                {/* <div className="absolute -top-6 -right-6 md:top-auto md:right-auto md:-bottom-10 md:-left-20 z-20 w-24 h-24 md:w-36 md:h-36 drop-shadow-md">
                   <svg width="100%" height="100%" viewBox="0 0 219 218" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M88.7765 196.314C137.114 207.894 185.687 178.096 197.267 129.758C208.847 81.4199 179.049 32.8469 130.711 21.2672C82.3727 9.68738 33.7998 39.4858 22.22 87.8237C10.6402 136.162 40.4386 184.735 88.7765 196.314Z"
@@ -216,7 +216,7 @@ export default function Hero() {
                       fill="#3F9C49"
                     />
                   </svg>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

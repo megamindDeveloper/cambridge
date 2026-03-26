@@ -20,11 +20,7 @@ export default function EnquiryModal({ isOpen = true, onClose }: EnquiryModalPro
   const [childAge, setChildAge] = useState("");
   const [grade, setGrade] = useState("");
   const [location, setLocation] = useState("");
-  const [visitDate, setVisitDate] = useState("");
-  
-  // ADDED: State to toggle input type cleanly
-  const [dateInputType, setDateInputType] = useState("text"); 
-  
+
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const searchParams = useSearchParams();
@@ -43,7 +39,6 @@ export default function EnquiryModal({ isOpen = true, onClose }: EnquiryModalPro
           childAge,
           grade,
           location,
-          visitDate,
           premise: "campbridge",
           utm_source: searchParams.get("utm_source") || "",
           utm_medium: searchParams.get("utm_medium") || "",
@@ -63,7 +58,6 @@ export default function EnquiryModal({ isOpen = true, onClose }: EnquiryModalPro
       setChildAge("");
       setGrade("");
       setLocation("");
-      setVisitDate("");
     } catch (err) {
       console.error("Webhook submission failed:", err);
       toast.error("Something went wrong. Please try again later.");
@@ -99,7 +93,6 @@ export default function EnquiryModal({ isOpen = true, onClose }: EnquiryModalPro
       >
         {/* Close Button */}
         <button
-
           onClick={onClose}
           className="absolute right-6 cursor-pointer top-6 text-gray-400 hover:text-primary transition-colors"
           aria-label="Close modal"
@@ -122,7 +115,8 @@ export default function EnquiryModal({ isOpen = true, onClose }: EnquiryModalPro
         {/* Heading */}
         <div className="mb-8 mt-8 md:mt-0 text-center">
           <h2 className="text-2xl md:text-[30px]  font-bold text-primary leading-tight">
-            Admissions Open {new Date().getFullYear()}-{(new Date().getFullYear() + 1).toString().slice(-2)} <br className="md:block hidden"/> Enquire for Nursery <br className=""/> to Grade 10
+            Admissions Open {new Date().getFullYear()}-{(new Date().getFullYear() + 1).toString().slice(-2)} <br className="md:block hidden" />{" "}
+            Enquire for Nursery <br className="" /> to Grade 10
           </h2>
         </div>
 
@@ -141,7 +135,7 @@ export default function EnquiryModal({ isOpen = true, onClose }: EnquiryModalPro
 
           <div className="flex items-center border-b border-primary/50 py-2 transition-colors focus-within:border-gray-800">
             <select
-            aria-label="country-code"
+              aria-label="country-code"
               value={countryCode}
               onChange={(e) => setCountryCode(e.target.value)}
               className="bg-transparent text-gray-500 font-medium text-base md:text-xl focus:outline-none cursor-pointer appearance-none"
@@ -173,14 +167,31 @@ export default function EnquiryModal({ isOpen = true, onClose }: EnquiryModalPro
               className="w-full border-b border-primary/50 py-2 bg-transparent text-primary placeholder-primary/90 text-base md:text-xl focus:outline-none focus:border-gray-800 transition-colors"
               required
             />
-            <input
-              type="text"
-              placeholder="Grade"
+            
+            {/* UPDATED GRADE SELECT SECTION */}
+            <select
               value={grade}
               onChange={(e) => setGrade(e.target.value)}
-              className="w-full border-b border-primary/50 py-2 bg-transparent text-primary placeholder-primary/90 text-base md:text-xl focus:outline-none focus:border-gray-800 transition-colors"
+              className="w-full border-b border-primary/50 py-2 bg-transparent text-primary placeholder-primary/90 text-base md:text-xl focus:outline-none focus:border-gray-800 transition-colors cursor-pointer"
               required
-            />
+            >
+              <option value="" disabled hidden>
+                Select Grade
+              </option>
+              <option value="Nursery">Nursery</option>
+              <option value="LKG">LKG</option>
+              <option value="UKG">UKG</option>
+              <option value="Grade 1">Grade 1</option>
+              <option value="Grade 2">Grade 2</option>
+              <option value="Grade 3">Grade 3</option>
+              <option value="Grade 4">Grade 4</option>
+              <option value="Grade 5">Grade 5</option>
+              <option value="Grade 6">Grade 6</option>
+              <option value="Grade 7">Grade 7</option>
+              <option value="Grade 8">Grade 8</option>
+              <option value="Grade 9">Grade 9</option>
+              <option value="Grade 10">Grade 10</option>
+            </select>
           </div>
 
           <div>
@@ -191,23 +202,6 @@ export default function EnquiryModal({ isOpen = true, onClose }: EnquiryModalPro
               onChange={(e) => setLocation(e.target.value)}
               className="w-full border-b border-primary/50 py-2 bg-transparent text-primary placeholder-primary/90 text-base md:text-xl focus:outline-none focus:border-gray-800 transition-colors"
               required
-            />
-          </div>
-
-          {/* UPDATED DATE INPUT SECTION */}
-          <div className="relative w-full">
-            <input
-              type={dateInputType}
-              placeholder="Preferred Visit Date"
-              value={
-                dateInputType === "text" && visitDate
-                  ? visitDate.split("-").reverse().join("-") // Reverses "yyyy-mm-dd" into "dd-mm-yyyy" cleanly
-                  : visitDate
-              }
-              onChange={(e) => setVisitDate(e.target.value)}
-              onFocus={() => setDateInputType("date")}
-              onBlur={() => setDateInputType("text")}
-              className="w-full border-b border-primary/50 py-2 bg-transparent text-primary placeholder-primary/90 text-base md:text-xl focus:outline-none focus:border-gray-800 transition-colors"
             />
           </div>
 
