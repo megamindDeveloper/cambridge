@@ -1,5 +1,5 @@
 # llms.txt — Cambridge School Mangalore
-# https://cambridgeschoolmangalore.com/llms.txt
+# https://apply.tcismangalore.org/llms.txt
 # Format: https://llmstxt.org/
 
 # ── Who We Are ────────────────────────────────────────────────────────────────
@@ -45,4 +45,4 @@
 # - Automated bulk crawling or scraping beyond what robots.txt allows
 
 # ── Canonical URL ─────────────────────────────────────────────────────────────
-canonical: https://cambridgeschoolmangalore.com
+canonical: https://apply.tcismangalore.org

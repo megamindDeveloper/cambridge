@@ -47,12 +47,12 @@ export const metadata: Metadata = {
   ],
 
   // ── Authorship & URL ──────────────────────────────────────────────────────
-  authors: [{ name: "Cambridge School Mangalore", url: "https://cambridgeschoolmangalore.com" }],
+  authors: [{ name: "Cambridge School Mangalore", url: "https://apply.tcismangalore.org" }],
   creator: "Cambridge School Mangalore",
   publisher: "St. Lawrence Education Trust",
-  metadataBase: new URL("https://cambridgeschoolmangalore.com"),
+  metadataBase: new URL("https://apply.tcismangalore.org"),
   alternates: {
-    canonical: "https://cambridgeschoolmangalore.com",
+    canonical: "https://apply.tcismangalore.org",
   },
 
   // ── Open Graph ────────────────────────────────────────────────────────────
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title: "Cambridge School Mangalore | Top CBSE School – Nursery to Grade 10",
     description:
       "A premier CBSE school in Adyar, Mangaluru, founded in 2007 by Collins & Flavia Albuquerque under St. Lawrence Education Trust. Admissions open 2025–26.",
-    url: "https://cambridgeschoolmangalore.com",
+    url: "https://apply.tcismangalore.org",
     siteName: "Cambridge School Mangalore",
     images: [
       {

@@ -130,7 +130,7 @@ export default function LandingPage() {
         <AdmissionsForm />
       </Suspense>
       <Footer />
-      <WhatsappChatWidget />
+      {/* <WhatsappChatWidget /> */}
     </div>
   );
 }

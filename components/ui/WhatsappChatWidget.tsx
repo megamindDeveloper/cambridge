@@ -26,7 +26,7 @@ const WhatsappChatWidget = () => {
         brandName: "TCIS Mangalore",
         brandSubTitle: "The Cambridge International School",
         brandImg:
-          "https://cambridgeschoolmangalore.com/images/ogImage/ogImage.png",
+          "https://apply.tcismangalore.org/images/ogImage/ogImage.png",
         welcomeText: "Hi there!\nHow can I help you?",
         messageText: "Hi, I'd like to enquire about admissions at The Cambridge International School. Could you please assist me with the details?",
         backgroundColor: "#00e785",

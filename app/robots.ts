@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-const BASE_URL = "https://cambridgeschoolmangalore.com";
+const BASE_URL = "https://apply.tcismangalore.org";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -18,13 +18,7 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         // Block AI training scrapers that don't respect llm.txt
-        userAgent: [
-          "GPTBot",
-          "ChatGPT-User",
-          "Google-Extended",
-          "CCBot",
-          "anthropic-ai",
-        ],
+        userAgent: ["GPTBot", "ChatGPT-User", "Google-Extended", "CCBot", "anthropic-ai"],
         disallow: "/",
       },
     ],

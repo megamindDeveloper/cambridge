@@ -122,7 +122,7 @@ export default function EnquiryModal({ isOpen = true, onClose }: EnquiryModalPro
         {/* Heading */}
         <div className="mb-8 mt-8 md:mt-0 text-center">
           <h2 className="text-2xl md:text-[30px]  font-bold text-primary leading-tight">
-            Admissions Open {new Date().getFullYear()}-{(new Date().getFullYear() + 1).toString().slice(-2)} <br className="md:block hidden"/> Enquire for Nursery <br className="md:hidden"/> to Grade 10
+            Admissions Open {new Date().getFullYear()}-{(new Date().getFullYear() + 1).toString().slice(-2)} <br className="md:block hidden"/> Enquire for Nursery <br className=""/> to Grade 10
           </h2>
         </div>
 

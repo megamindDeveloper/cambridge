@@ -8,10 +8,9 @@ const WhatsappChatWidget = dynamic(() => import("@/components/ui/WhatsappChatWid
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Cambridge School Mangalore",
-  description:
-    "Learn how The Cambridge International School collects, uses, and safeguards your personal information. Read our full privacy policy.",
+  description: "Learn how The Cambridge International School collects, uses, and safeguards your personal information. Read our full privacy policy.",
   alternates: {
-    canonical: "https://cambridgeschoolmangalore.com/privacy-policy",
+    canonical: "https://apply.tcismangalore.org/privacy-policy",
   },
   robots: { index: true, follow: true },
 };
@@ -27,21 +26,18 @@ const sections = [
           We may collect personal information that you voluntarily provide to us when you:
         </p>
         <ul className="list-none space-y-3">
-          {[
-            "Fill out an enquiry form.",
-            "Book a campus visit.",
-            "Contact us via email or telephone.",
-            "Subscribe to our newsletter or updates.",
-          ].map((item) => (
-            <li key={item} className="flex items-start gap-3 text-primary/80 text-base md:text-lg leading-relaxed">
-              <span className="mt-2 flex-shrink-0 w-2 h-2 rounded-full bg-[#E31C22]" />
-              {item}
-            </li>
-          ))}
+          {["Fill out an enquiry form.", "Book a campus visit.", "Contact us via email or telephone.", "Subscribe to our newsletter or updates."].map(
+            (item) => (
+              <li key={item} className="flex items-start gap-3 text-primary/80 text-base md:text-lg leading-relaxed">
+                <span className="mt-2 flex-shrink-0 w-2 h-2 rounded-full bg-[#E31C22]" />
+                {item}
+              </li>
+            ),
+          )}
         </ul>
         <p className="text-primary/80 text-base md:text-lg leading-relaxed mt-4">
-          The types of information collected may include your name, email address, phone number, your child&apos;s
-          name/age, and any specific messages you send regarding admissions.
+          The types of information collected may include your name, email address, phone number, your child&apos;s name/age, and any specific messages
+          you send regarding admissions.
         </p>
       </>
     ),
@@ -52,9 +48,7 @@ const sections = [
     title: "How We Use Your Information",
     content: (
       <>
-        <p className="text-primary/80 text-base md:text-lg leading-relaxed mb-4">
-          We use the information we collect to:
-        </p>
+        <p className="text-primary/80 text-base md:text-lg leading-relaxed mb-4">We use the information we collect to:</p>
         <ul className="list-none space-y-3">
           {[
             "Respond to your enquiries regarding admissions and school programs.",
@@ -78,9 +72,9 @@ const sections = [
     title: "Data Storage and Security",
     content: (
       <p className="text-primary/80 text-base md:text-lg leading-relaxed">
-        We implement appropriate technical and organizational measures to protect your personal data against
-        unauthorized access, loss, or alteration. While we strive to use commercially acceptable means to protect
-        your personal information, no method of transmission over the Internet is 100% secure.
+        We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, loss, or alteration.
+        While we strive to use commercially acceptable means to protect your personal information, no method of transmission over the Internet is 100%
+        secure.
       </p>
     ),
   },
@@ -91,23 +85,21 @@ const sections = [
     content: (
       <>
         <p className="text-primary/80 text-base md:text-lg leading-relaxed mb-4">
-          We do not sell or rent your personal information to third parties. We may share your information only in
-          the following circumstances:
+          We do not sell or rent your personal information to third parties. We may share your information only in the following circumstances:
         </p>
         <div className="space-y-4">
           <div className="flex items-start gap-4">
             <span className="mt-1 flex-shrink-0 w-2 h-2 rounded-full bg-[#E31C22]" />
             <p className="text-primary/80 text-base md:text-lg leading-relaxed">
-              <span className="font-semibold text-primary">Service Providers:</span> With trusted vendors who
-              assist us in operating our website or conducting our business (e.g., hosting services, email
-              platforms), provided they agree to keep this information confidential.
+              <span className="font-semibold text-primary">Service Providers:</span> With trusted vendors who assist us in operating our website or
+              conducting our business (e.g., hosting services, email platforms), provided they agree to keep this information confidential.
             </p>
           </div>
           <div className="flex items-start gap-4">
             <span className="mt-1 flex-shrink-0 w-2 h-2 rounded-full bg-[#E31C22]" />
             <p className="text-primary/80 text-base md:text-lg leading-relaxed">
-              <span className="font-semibold text-primary">Legal Requirements:</span> If required by law, such
-              as to comply with a subpoena or similar legal process.
+              <span className="font-semibold text-primary">Legal Requirements:</span> If required by law, such as to comply with a subpoena or similar
+              legal process.
             </p>
           </div>
         </div>
@@ -120,9 +112,8 @@ const sections = [
     title: "Cookies and Tracking",
     content: (
       <p className="text-primary/80 text-base md:text-lg leading-relaxed">
-        Our website may use &quot;cookies&quot; to enhance the user experience. You can choose to set your web
-        browser to refuse cookies or to alert you when cookies are being sent. If you do so, note that some parts
-        of the site may not function properly.
+        Our website may use &quot;cookies&quot; to enhance the user experience. You can choose to set your web browser to refuse cookies or to alert
+        you when cookies are being sent. If you do so, note that some parts of the site may not function properly.
       </p>
     ),
   },
@@ -132,9 +123,8 @@ const sections = [
     title: "Third-Party Links",
     content: (
       <p className="text-primary/80 text-base md:text-lg leading-relaxed">
-        Our website contains links to other sites, such as social media platforms and Google Maps for campus
-        location and transport routes. We are not responsible for the privacy practices or the content of these
-        third-party websites.
+        Our website contains links to other sites, such as social media platforms and Google Maps for campus location and transport routes. We are not
+        responsible for the privacy practices or the content of these third-party websites.
       </p>
     ),
   },
@@ -144,9 +134,8 @@ const sections = [
     title: "Children's Privacy",
     content: (
       <p className="text-primary/80 text-base md:text-lg leading-relaxed">
-        As an educational institution, we handle information regarding minors with the utmost care. Information
-        about children is only collected through parents or legal guardians for the purpose of admission enquiries
-        and school administration.
+        As an educational institution, we handle information regarding minors with the utmost care. Information about children is only collected
+        through parents or legal guardians for the purpose of admission enquiries and school administration.
       </p>
     ),
   },
@@ -156,9 +145,7 @@ const sections = [
     title: "Your Rights",
     content: (
       <>
-        <p className="text-primary/80 text-base md:text-lg leading-relaxed mb-4">
-          Depending on your location, you may have the right to:
-        </p>
+        <p className="text-primary/80 text-base md:text-lg leading-relaxed mb-4">Depending on your location, you may have the right to:</p>
         <ul className="list-none space-y-3">
           {[
             "Request access to the personal data we hold about you.",
@@ -180,8 +167,8 @@ const sections = [
     title: "Changes to This Policy",
     content: (
       <p className="text-primary/80 text-base md:text-lg leading-relaxed">
-        The Cambridge International School reserves the right to update this Privacy Policy at any time. We
-        encourage users to frequently check this page for any changes.
+        The Cambridge International School reserves the right to update this Privacy Policy at any time. We encourage users to frequently check this
+        page for any changes.
       </p>
     ),
   },
@@ -194,14 +181,7 @@ export default function PrivacyPolicyPage() {
       <nav className="w-full relative z-50 bg-white border-b border-[#DBDBDB]">
         <div className="container mx-auto px-4 pt-6 pb-3 md:py-10 flex flex-row md:flex-row md:gap-0 gap-7 justify-between items-start md:items-center">
           <Link href="/" aria-label="Go to homepage">
-            <Image
-              src="/svgs/navLogo.svg"
-              width={220}
-              height={220}
-              alt="Logo"
-              className="w-[170px] md:w-[220px] cursor-pointer h-auto"
-              priority
-            />
+            <Image src="/svgs/navLogo.svg" width={220} height={220} alt="Logo" className="w-[170px] md:w-[220px] cursor-pointer h-auto" priority />
           </Link>
           <div>
             <div className="flex flex-col md:gap-4 gap-2">
@@ -227,9 +207,7 @@ export default function PrivacyPolicyPage() {
               <span className="text-primary/80">Privacy Policy</span>
             </nav>
 
-            <h1 className="text-3xl md:text-5xl font-bold text-primary leading-tight mb-4 tracking-tight">
-              Privacy Policy
-            </h1>
+            <h1 className="text-3xl md:text-5xl font-bold text-primary leading-tight mb-4 tracking-tight">Privacy Policy</h1>
             <p className="text-primary/60 text-base md:text-lg font-medium">
               Last Updated:{" "}
               <time dateTime="2026-03-26" className="text-primary/80">
@@ -237,9 +215,9 @@ export default function PrivacyPolicyPage() {
               </time>
             </p>
             <p className="mt-5 max-w-3xl text-primary/70 text-base md:text-lg leading-relaxed">
-              The Cambridge International School (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed
-              to protecting the privacy of our students, parents, and visitors. This Privacy Policy outlines how we
-              collect, use, and safeguard your information when you visit our website{" "}
+              The Cambridge International School (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting the privacy of our
+              students, parents, and visitors. This Privacy Policy outlines how we collect, use, and safeguard your information when you visit our
+              website{" "}
               <a
                 href="https://apply.tcismangalore.org"
                 target="_blank"
@@ -287,11 +265,7 @@ export default function PrivacyPolicyPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto space-y-14 md:space-y-20">
               {sections.map((s, idx) => (
-                <div
-                  key={s.id}
-                  id={s.id}
-                  className="scroll-mt-28 flex flex-col gap-5"
-                >
+                <div key={s.id} id={s.id} className="scroll-mt-28 flex flex-col gap-5">
                   {/* Section divider — hidden for the very first section */}
                   {idx > 0 && <div className="h-[1px] w-full bg-[#DBDBDB]" />}
 
@@ -304,9 +278,7 @@ export default function PrivacyPolicyPage() {
                     >
                       {s.number}
                     </span>
-                    <h2 className="text-xl md:text-2xl font-bold text-primary leading-snug pt-1">
-                      {s.title}
-                    </h2>
+                    <h2 className="text-xl md:text-2xl font-bold text-primary leading-snug pt-1">{s.title}</h2>
                   </div>
 
                   {/* Section body */}
@@ -336,14 +308,7 @@ export default function PrivacyPolicyPage() {
                   <div className="rounded-2xl border border-[#DBDBDB] bg-[#F8F8F8] p-6 md:p-8 space-y-4">
                     <p className="font-bold text-primary text-base md:text-lg">The Cambridge International School</p>
                     <div className="flex items-start gap-3 text-primary/70 text-base md:text-lg">
-                      <svg
-                        className="mt-0.5 flex-shrink-0"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 28 36"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg className="mt-0.5 flex-shrink-0" width="18" height="18" viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M14.0026 34.2288C14.0026 34.2288 27.0052 22.671 27.0052 14.0026C27.0052 6.82145 21.1837 1 14.0026 1C6.82145 1 1 6.82145 1 14.0026C1 22.671 14.0026 34.2288 14.0026 34.2288Z"
                           stroke="#E31C22"
@@ -358,14 +323,7 @@ export default function PrivacyPolicyPage() {
                       <span>Adyar, Mangalore, Karnataka 575007</span>
                     </div>
                     <div className="flex items-center gap-3 text-primary/70 text-base md:text-lg">
-                      <svg
-                        className="flex-shrink-0"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 32 26"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg className="flex-shrink-0" width="18" height="18" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M3.80758 3.91157L14.9084 11.8814C15.5493 12.3415 16.3982 12.3415 17.0392 11.8814L28.14 3.91157M4.74344 24.2925H27.2041C29.2715 24.2925 30.9475 22.5545 30.9475 20.4104V4.88209C30.9475 2.73807 29.2715 1 27.2041 1H4.74344C2.676 1 1 2.73807 1 4.88209V20.4104C1 22.5545 2.676 24.2925 4.74344 24.2925Z"
                           stroke="#E31C22"
@@ -382,14 +340,7 @@ export default function PrivacyPolicyPage() {
                       </a>
                     </div>
                     <div className="flex items-center gap-3 text-primary/70 text-base md:text-lg">
-                      <svg
-                        className="flex-shrink-0"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 37 37"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg className="flex-shrink-0" width="18" height="18" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M13.844 14.0744C15.098 12.8204 15.098 10.7873 13.844 9.53342L9.303 4.99235C8.04903 3.73837 6.0159 3.73837 4.76193 4.99235C-0.253976 10.0082 -0.253976 18.1406 4.76193 23.1565L13.844 32.2386C18.8599 37.2545 26.9922 37.2545 32.0081 32.2386C33.2622 30.9846 33.2622 28.9515 32.0081 27.6976L27.4671 23.1565C26.2132 21.9025 24.18 21.9025 22.9261 23.1565L20.6556 25.427C19.4016 26.681 17.3685 26.681 16.1145 25.427L11.5735 20.886C10.3195 19.632 10.3195 17.5989 11.5735 16.3449L13.844 14.0744Z"
                           stroke="#E31C22"
@@ -399,10 +350,7 @@ export default function PrivacyPolicyPage() {
                           strokeLinejoin="round"
                         />
                       </svg>
-                      <a
-                        href="tel:+919686357711"
-                        className="hover:text-[#E31C22] transition-colors duration-200"
-                      >
+                      <a href="tel:+919686357711" className="hover:text-[#E31C22] transition-colors duration-200">
                         +91 9686357711
                       </a>
                     </div>
@@ -414,11 +362,10 @@ export default function PrivacyPolicyPage() {
         </section>
 
         {/* ── Back to top / CTA strip ────────────────────────────────── */}
-        
       </main>
 
       <Footer />
-      <WhatsappChatWidget />
+      {/* <WhatsappChatWidget /> */}
     </div>
   );
 }

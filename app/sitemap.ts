@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-const BASE_URL = "https://cambridgeschoolmangalore.com";
+const BASE_URL = "https://apply.tcismangalore.org";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -9,6 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1.0,
-    }
+    },
   ];
 }
