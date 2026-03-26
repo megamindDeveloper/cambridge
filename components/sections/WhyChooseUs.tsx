@@ -133,7 +133,7 @@ interface CardProps {
 
 const Card = ({ card }: CardProps) => (
   <div
-    className={`${card.bgColor} rounded-2xl px-8 py-8 relative overflow-hidden transition-transform duration-300 md:hover:-translate-y-2 shadow-sm md:min-h-[220px] h-full flex items-center lg:items-start`}
+    className={`${card.bgColor} rounded-2xl px-3 md:px-8 py-8 relative overflow-hidden transition-transform duration-300 md:hover:-translate-y-2 shadow-sm md:min-h-[220px] h-full flex items-center lg:items-start`}
   >
     <h3 className="text-white text-xl lg:text-[28px] font-semibold whitespace-pre-line relative z-10 leading-[1.2]">{card.title}</h3>
 
