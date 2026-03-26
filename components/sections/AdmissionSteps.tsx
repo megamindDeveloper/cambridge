@@ -133,9 +133,9 @@ export default function AdmissionSteps() {
   }, [controls]);
 
   return (
-    <section ref={sectionRef} className="w-full bg-white md:pb-10 pt-3 md:pt-16 overflow-hidden">
+    <section ref={sectionRef} className="w-full bg-white md:pb-14 pt-3 md:pt-16 overflow-hidden">
       <div className="w-full container mx-auto px-4 ">
-        <div className="border-t-[3px] pt-10 md:border-b-[3px] pb-7 md:pb-20 border-[#DBDBDB] flex flex-col items-center">
+        <div className="border-t-[3px] md:border-t-0 pt-10 md:pt-5 md:border-b-[3px] pb-7 md:pb-24 border-[#DBDBDB] flex flex-col items-center">
         {/* Heading Section */}
         <div className="text-center mb-8 md:mb-14">
           <motion.h2 

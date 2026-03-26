@@ -115,7 +115,7 @@ export default function WhatMakesUsDifferent() {
           </div>
 
           {/* Right Side: Accordion */}
-          <div className="flex flex-col justify-start lg:pt-2 w-full max-w-2xl">
+          <div className="flex flex-col justify-start lg:pt-2 w-full max-w-2xl xl:max-w-3xl">
             {features.map((feature) => {
               const isActive = feature.id === activeId;
 
