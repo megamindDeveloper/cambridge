@@ -18,6 +18,7 @@ interface StyledMapProps {
   zoom: number;
   allowedPoints?: number[];
   mainMarkerPosition?: { lat: number; lng: number };
+  mainMarkerLink?: string;
   customMarkerImage?: string;
   // Add hover state props
   hoveredPoint?: number | null;
@@ -29,6 +30,7 @@ export default function StyledMap({
   zoom,
   allowedPoints,
   mainMarkerPosition,
+  mainMarkerLink,
   customMarkerImage = "/svgs/location.svg",
   hoveredPoint,
   setHoveredPoint,
@@ -48,7 +50,7 @@ export default function StyledMap({
     gestureHandling: "none", 
   }), []);
 const handleMarkerClick = (lat: number, lng: number) => {
-  const url = `https://www.google.com/maps?q=${lat},${lng}`;
+  const url = mainMarkerLink || `https://www.google.com/maps?q=${lat},${lng}`;
   window.open(url, "_blank");
 };
   return (

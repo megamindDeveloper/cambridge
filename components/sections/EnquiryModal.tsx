@@ -116,12 +116,16 @@ export default function EnquiryModal({ isOpen = true, onClose }: EnquiryModalPro
         </button>
 
         {/* Heading */}
-        <div className="mb-8 mt-8 md:mt-0 text-center">
-          <h2 className="text-2xl md:text-[30px]  font-bold text-primary leading-tight">
-            Admissions Open {new Date().getFullYear()}-{(new Date().getFullYear() + 1).toString().slice(-2)} <br className="md:block hidden" />{" "}
-            Enquire for Nursery <br className="" /> to Grade 10
-          </h2>
-        </div>
+      <div className="mb-8 mt-8 md:mt-0 text-center">
+  <h2 className="text-2xl md:text-[30px] font-bold text-primary leading-tight">
+    Admissions Open{" "}
+    <span className="whitespace-nowrap">
+      {new Date().getFullYear()}-{(new Date().getFullYear() + 1).toString().slice(-2)}
+    </span>
+    <br className="md:block hidden" />{" "}
+    Enquire for Nursery to  <br className="md:block hidden" /> Grade 10
+  </h2>
+</div>
 
         {/* Form */}
         <form className="flex flex-col gap-6" onSubmit={handleSubmit}>

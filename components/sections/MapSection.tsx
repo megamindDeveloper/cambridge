@@ -16,6 +16,7 @@ export interface MapSectionData {
 export interface MapSectionProps {
   data: MapSectionData[];
   mainMarkerPosition?: { lat: number; lng: number };
+  mainMarkerLink?: string;
   customMarkerImage?: string;
   title?: string;
 }
@@ -23,6 +24,7 @@ export interface MapSectionProps {
 export default function MapSection({
   data,
   mainMarkerPosition,
+  mainMarkerLink,
   customMarkerImage,
   title = "Transport Routes across all parts of Mangalore",
 }: MapSectionProps) {
@@ -61,6 +63,7 @@ export default function MapSection({
           zoom={mapZoom}
           allowedPoints={allPoints}
           mainMarkerPosition={mainMarkerPosition}
+          mainMarkerLink={mainMarkerLink}
           customMarkerImage={customMarkerImage}
           hoveredPoint={hoveredPoint}
           setHoveredPoint={setHoveredPoint}

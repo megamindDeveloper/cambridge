@@ -124,7 +124,7 @@ export default function LandingPage() {
         <CampusFacilities />
       </div>
 
-      <MapSection data={MAP_DATA} mainMarkerPosition={{ lat: 12.866519719791675, lng: 74.9199120224277 }} customMarkerImage="/svgs/location.svg" />
+      <MapSection data={MAP_DATA} mainMarkerPosition={{ lat: 12.866519719791675, lng: 74.9199120224277 }} mainMarkerLink="https://maps.app.goo.gl/7UXKaUUaHiRX1QSW7" customMarkerImage="/svgs/location.svg" />
       <AdmissionSteps />
       <Suspense fallback={<div className="w-full h-96" />}>
         <AdmissionsForm />
